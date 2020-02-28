@@ -1,0 +1,26 @@
+{
+  "name": "f1-stats",
+  "version": "1.0.0",
+  "description": "An application for collating Formula 1 stats for races dating back to 1950",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsec/f1-stats.git"
+  },
+  "keywords": [
+    "f1",
+    "formula1"
+  ],
+  "author": "Jarrod Seccombe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsec/f1-stats/issues"
+  },
+  "homepage": "https://github.com/jsec/f1-stats#readme"
+}
