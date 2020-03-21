@@ -1,4 +1,7 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+
+import { Driver } from './driver.entity';
+import { Race } from './race.entity';
 
 @Entity()
 export class DriverStanding {
@@ -6,9 +9,11 @@ export class DriverStanding {
   id: number;
 
   @Column('smallint')
+  @ManyToOne(type => Race, race => race.id)
   raceId: number;
 
   @Column('smallint')
+  @ManyToOne(type => Driver, driver => driver.id)
   driverId: number;
 
   @Column('smallint')

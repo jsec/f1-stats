@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+
+import { Race } from './race.entity';
 
 @Entity()
 export class LapTime {
@@ -6,6 +8,7 @@ export class LapTime {
   id: number;
 
   @Column('smallint')
+  @ManyToOne(type => Race, race => race.id)
   raceId: number;
 
   @Column('smallint')

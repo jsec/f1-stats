@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryColumn } from 'typeorm';
+
+import { Circuit } from './circuit.entity';
 
 @Entity()
 export class Race {
@@ -12,6 +14,7 @@ export class Race {
   round: number;
 
   @Column('smallint')
+  @OneToOne(type => Circuit, circuit => circuit.id)
   circuitId: number;
 
   @Column({ length: 50 })
