@@ -27,9 +27,9 @@ jobs:
 
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: cd api && npm install
 
     - name: Build API
       run: cd api && npm run prebuild && npm run build
