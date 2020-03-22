@@ -1,4 +1,4 @@
-import { Column, Entity, OneToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
 import { Circuit } from './circuit.entity';
 
@@ -13,9 +13,9 @@ export class Race {
   @Column('smallint')
   round: number;
 
-  @Column('smallint')
-  @OneToOne(type => Circuit, circuit => circuit.id)
-  circuitId: number;
+  @ManyToOne(type => Circuit, circuit => circuit.id)
+  @JoinColumn()
+  circuit: Circuit;
 
   @Column({ length: 50 })
   name: string;

@@ -1,20 +1,20 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
-import { Constructor } from 'src/entities/constructor.entity';
-import { Race } from 'src/entities/race.entity';
+import { Constructor } from './constructor.entity';
+import { Race } from './race.entity';
 
 @Entity()
 export class ConstructorStanding {
   @PrimaryColumn('smallint')
   id: number;
 
-  @Column('smallint')
   @ManyToOne(type => Race, race => race.id)
-  raceId: number;
+  @JoinColumn()
+  race: Race;
 
-  @Column('smallint')
   @ManyToOne(type => Constructor, constructor => constructor.id)
-  constructorId: number;
+  @JoinColumn()
+  constructorRef: Constructor;
 
   @Column('smallint')
   points: number;

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
 import { Constructor } from './constructor.entity';
 import { Driver } from './driver.entity';
@@ -10,17 +10,17 @@ export class RaceResult {
   @PrimaryColumn('int')
   id: number;
 
-  @Column('smallint')
   @ManyToOne(type => Race, race => race.id)
-  raceId: number;
+  @JoinColumn()
+  race: Race;
 
-  @Column('smallint')
   @ManyToOne(type => Driver, driver => driver.id)
-  driverId: number;
+  @JoinColumn()
+  driver: Driver;
 
-  @Column('smallint')
   @ManyToOne(type => Constructor, constructor => constructor.id)
-  constructorId: number;
+  @JoinColumn()
+  constructorRef: Constructor;
 
   @Column('smallint')
   number: number;
@@ -61,7 +61,7 @@ export class RaceResult {
   @Column('real')
   fastestLapSpeed: number;
 
-  @Column('smallint')
-  @OneToOne(type => Status, status => status.id)
-  statusId: number;
+  @ManyToOne(type => Status, status => status.id)
+  @JoinColumn()
+  status: Status;
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
 import { Driver } from './driver.entity';
 import { Race } from './race.entity';
@@ -8,13 +8,13 @@ export class DriverStanding {
   @PrimaryColumn('int')
   id: number;
 
-  @Column('smallint')
   @ManyToOne(type => Race, race => race.id)
-  raceId: number;
+  @JoinColumn()
+  race: Race;
 
-  @Column('smallint')
   @ManyToOne(type => Driver, driver => driver.id)
-  driverId: number;
+  @JoinColumn()
+  driver: Driver;
 
   @Column('smallint')
   points: number;

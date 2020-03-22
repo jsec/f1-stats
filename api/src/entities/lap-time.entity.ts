@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
+import { Driver } from './driver.entity';
 import { Race } from './race.entity';
 
 @Entity()
@@ -7,12 +8,13 @@ export class LapTime {
   @PrimaryColumn('int')
   id: number;
 
-  @Column('smallint')
   @ManyToOne(type => Race, race => race.id)
-  raceId: number;
+  @JoinColumn()
+  race: Race;
 
-  @Column('smallint')
-  driverId: number;
+  @ManyToOne(type => Driver, driver => driver.id)
+  @JoinColumn()
+  driver: Driver;
 
   @Column('smallint')
   lap: number;
