@@ -5,5 +5,5 @@ module.exports = {
   database: process.env.DB_NAME,
   synchronize: true,
   logging: true,
-  entities: ['dist/**/*/*.entity{.ts,.js}'],
+  entities: ['dist/**/*.entity.js'],
 };
