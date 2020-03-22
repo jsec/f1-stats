@@ -6,4 +6,8 @@ module.exports = {
   synchronize: true,
   logging: true,
   entities: ['dist/**/*.entity.js'],
+  migrations: ['src/migrations/*.ts'],
+  cli: {
+    migrationsDir: 'migrations',
+  },
 };
