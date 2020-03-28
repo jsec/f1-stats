@@ -12,16 +12,16 @@ import { Race } from './race.model';
 
 @Table
 export class ConstructorStanding extends Model<ConstructorStanding> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   int: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Race)
+  @Column(DataType.SMALLINT)
   raceId: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Constructor)
+  @Column(DataType.SMALLINT)
   constructorId: number;
 
   @Column(DataType.SMALLINT)

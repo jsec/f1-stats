@@ -13,22 +13,22 @@ import { Status } from './status.model';
 
 @Table
 export class ConstructorResult extends Model<ConstructorResult> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Race)
+  @Column(DataType.SMALLINT)
   raceId: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Constructor)
+  @Column(DataType.SMALLINT)
   constructorId: number;
 
   @Column(DataType.SMALLINT)
   points: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Status)
+  @Column(DataType.SMALLINT)
   statusId: number;
 }

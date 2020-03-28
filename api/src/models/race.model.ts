@@ -11,8 +11,8 @@ import { Circuit } from './circuit.model';
 
 @Table
 export class Race extends Model<Race> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
   @Column(DataType.INTEGER)
@@ -21,8 +21,8 @@ export class Race extends Model<Race> {
   @Column(DataType.SMALLINT)
   round: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Circuit)
+  @Column(DataType.SMALLINT)
   circuitId: number;
 
   @Column(DataType.STRING)

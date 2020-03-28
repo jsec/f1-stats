@@ -8,8 +8,8 @@ import {
 
 @Table
 export class Status extends Model<Status> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
   @Column(DataType.STRING)

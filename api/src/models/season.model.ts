@@ -8,8 +8,8 @@ import {
 
 @Table
 export class Season extends Model<Season> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
   @Column(DataType.INTEGER)

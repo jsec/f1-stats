@@ -13,21 +13,21 @@ import { Race } from './race.model';
 import { Status } from './status.model';
 
 @Table
-export class Qualification extends Model<Qualification> {
-  @Column(DataType.SMALLINT)
+export class RaceResult extends Model<RaceResult> {
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Race)
+  @Column(DataType.SMALLINT)
   raceId: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Driver)
+  @Column(DataType.SMALLINT)
   driverId: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Constructor)
+  @Column(DataType.SMALLINT)
   constructorId: number;
 
   @Column(DataType.SMALLINT)
@@ -69,7 +69,7 @@ export class Qualification extends Model<Qualification> {
   @Column(DataType.REAL)
   fastestLapSpeed: number;
 
-  @Column(DataType.SMALLINT)
   @ForeignKey(() => Status)
+  @Column(DataType.SMALLINT)
   statusId: number;
 }

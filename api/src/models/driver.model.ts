@@ -8,8 +8,8 @@ import {
 
 @Table
 export class Driver extends Model<Driver> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
   @Column(DataType.STRING)

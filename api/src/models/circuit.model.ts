@@ -8,8 +8,8 @@ import {
 
 @Table
 export class Circuit extends Model<Circuit> {
-  @Column(DataType.SMALLINT)
   @PrimaryKey
+  @Column(DataType.SMALLINT)
   id: number;
 
   @Column(DataType.STRING)
