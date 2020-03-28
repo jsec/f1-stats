@@ -1,14 +1,14 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 
 import { APP_FILTER } from '@nestjs/core';
-import { AllExceptionsFilter } from './filters/http-exception.filter';
+import { AllExceptionsFilter } from '../filters/http-exception.filter';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from '../database/database.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forRoot()],
+  imports: [DatabaseModule],
   controllers: [AppController],
   providers: [
     AppService,
