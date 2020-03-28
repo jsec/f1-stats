@@ -5,10 +5,9 @@ import { AllExceptionsFilter } from './filters/http-exception.filter';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forRoot()],
+  imports: [],
   controllers: [AppController],
   providers: [
     AppService,
