@@ -24,10 +24,10 @@ export class Circuit extends Model<Circuit> {
   @Column(DataType.STRING)
   country: string;
 
-  @Column(DataType.NUMBER)
+  @Column(DataType.REAL)
   latitude: number;
 
-  @Column(DataType.NUMBER)
+  @Column(DataType.REAL)
   longitude: number;
 
   @Column(DataType.STRING)
