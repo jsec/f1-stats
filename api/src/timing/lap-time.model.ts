@@ -7,12 +7,11 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Constructor } from './constructor.model';
-import { Race } from './race.model';
-import { Status } from './status.model';
+import { Constructor } from '../constructor/constructor.model';
+import { Race } from '../race/race.model';
 
 @Table
-export class ConstructorResult extends Model<ConstructorResult> {
+export class LapTime extends Model<LapTime> {
   @PrimaryKey
   @Column(DataType.SMALLINT)
   id: number;
@@ -26,9 +25,14 @@ export class ConstructorResult extends Model<ConstructorResult> {
   constructorId: number;
 
   @Column(DataType.SMALLINT)
-  points: number;
+  lap: number;
 
-  @ForeignKey(() => Status)
   @Column(DataType.SMALLINT)
-  statusId: number;
+  position: number;
+
+  @Column(DataType.TIME)
+  time: Date;
+
+  @Column(DataType.INTEGER)
+  milliseconds: number;
 }

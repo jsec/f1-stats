@@ -7,8 +7,8 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Driver } from 'src/models/driver.model';
-import { Race } from './race.model';
+import { Driver } from '../driver/driver.model';
+import { Race } from '../race/race.model';
 
 @Table
 export class PitStop extends Model<PitStop> {

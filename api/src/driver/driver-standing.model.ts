@@ -7,14 +7,14 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Constructor } from './constructor.model';
-import { Race } from './race.model';
+import { Constructor } from '../constructor/constructor.model';
+import { Race } from '../race/race.model';
 
 @Table
-export class ConstructorStanding extends Model<ConstructorStanding> {
+export class DriverStanding extends Model<DriverStanding> {
   @PrimaryKey
   @Column(DataType.SMALLINT)
-  int: number;
+  id: number;
 
   @ForeignKey(() => Race)
   @Column(DataType.SMALLINT)
@@ -33,6 +33,6 @@ export class ConstructorStanding extends Model<ConstructorStanding> {
   @Column(DataType.STRING)
   positionText: string;
 
-  @Column(DataType.SMALLINT)
-  wins: number;
+  @Column(DataType.BOOLEAN)
+  win: boolean;
 }

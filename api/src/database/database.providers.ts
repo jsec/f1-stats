@@ -1,17 +1,17 @@
-import { Circuit } from 'src/models/circuit.model';
-import { Constructor } from '../models/constructor.model';
-import { ConstructorResult } from '../models/constructor-result.model';
-import { ConstructorStanding } from '../models/constructor-standing.model';
-import { Driver } from '../models/driver.model';
-import { DriverStanding } from '../models/driver-standing.model';
-import { LapTime } from '../models/lap-time.model';
-import { PitStop } from '../models/pit-stop.model';
-import { Qualification } from '../models/qualification.model';
-import { Race } from '../models/race.model';
-import { RaceResult } from '../models/race-result.model';
-import { Season } from '../models/season.model';
+import { Circuit } from '../circuit/circuit.model';
+import { Constructor } from '../constructor/constructor.model';
+import { ConstructorResult } from '../constructor/constructor-result.model';
+import { ConstructorStanding } from '../constructor/constructor-standing.model';
+import { Driver } from '../driver/driver.model';
+import { DriverStanding } from '../driver/driver-standing.model';
+import { LapTime } from '../timing/lap-time.model';
+import { PitStop } from '../timing/pit-stop.model';
+import { Qualification } from '../timing/qualification.model';
+import { Race } from '../race/race.model';
+import { RaceResult } from '../race/race-result.model';
+import { Season } from '../season/season.model';
 import { Sequelize } from 'sequelize-typescript';
-import { Status } from '../models/status.model';
+import { Status } from '../status/status.model';
 
 export const databaseProviders = [
   {

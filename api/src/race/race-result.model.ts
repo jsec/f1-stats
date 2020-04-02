@@ -7,10 +7,10 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Constructor } from 'src/models/constructor.model';
-import { Driver } from 'src/models/driver.model';
+import { Constructor } from '../constructor/constructor.model';
+import { Driver } from '../driver/driver.model';
 import { Race } from './race.model';
-import { Status } from './status.model';
+import { Status } from '../status/status.model';
 
 @Table
 export class RaceResult extends Model<RaceResult> {
