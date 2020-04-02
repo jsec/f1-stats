@@ -1,7 +1,10 @@
+import * as databaseConfig from '../../config/database.json';
+
 import { Circuit } from '../circuit/circuit.model';
 import { Constructor } from '../constructor/constructor.model';
 import { ConstructorResult } from '../constructor/constructor-result.model';
 import { ConstructorStanding } from '../constructor/constructor-standing.model';
+import { Dialect } from 'sequelize/types';
 import { Driver } from '../driver/driver.model';
 import { DriverStanding } from '../driver/driver-standing.model';
 import { LapTime } from '../timing/lap-time.model';
@@ -17,14 +20,18 @@ export const databaseProviders = [
   {
     provide: 'SEQUELIZE',
     useFactory: async () => {
+      const config = databaseConfig.development;
+
       const sequelize = new Sequelize({
-        username: null,
-        password: null,
-        database: 'f1statstest',
-        host: '127.0.0.1',
-        dialect: 'postgres',
+        username: config.username,
+        password: config.password,
+        database: config.database,
+        host: config.host,
+        dialect: config.dialect as Dialect,
       });
 
+      // TODO: figure out a way to glob these
+      // (nestjs compiles these and puts them in the dist folder before the sequelize instance is created)
       sequelize.addModels([
         Circuit,
         Constructor,
