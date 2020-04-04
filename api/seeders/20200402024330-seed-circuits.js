@@ -1,26 +1,31 @@
 'use strict';
 
+const funcs = require('../scripts/seed-functions');
+
+function createCircuit(data) {
+  return {
+    id: parseInt(data.circuitId),
+    ref: data.circuitRef,
+    name: data.name,
+    city: data.location,
+    country: data.country,
+    latitude: parseFloat(data.lat),
+    longitude: parseFloat(data.lng),
+    alt: data.alt,
+    url: data.url,
+  };
+}
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    const circuits = funcs
+      .loadData('data/circuits.csv')
+      .map(data => createCircuit(data));
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('Circuit', circuits, {});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
-  }
+    return queryInterface.bulkDelete('Circuit', null, {});
+  },
 };
