@@ -13,6 +13,8 @@ function createCircuit(data) {
     longitude: parseFloat(data.lng),
     alt: data.alt,
     url: data.url,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   };
 }
 
@@ -22,10 +24,10 @@ module.exports = {
       .loadData('data/circuits.csv')
       .map(data => createCircuit(data));
 
-    return queryInterface.bulkInsert('Circuit', circuits, {});
+    return queryInterface.bulkInsert('Circuits', circuits, {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Circuit', null, {});
+    return queryInterface.bulkDelete('Circuits', null, {});
   },
 };
