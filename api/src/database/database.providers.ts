@@ -1,4 +1,4 @@
-import * as databaseConfig from '../../config/database.json';
+import * as databaseConfig from '../../config/config.json';
 
 import { Circuit } from '../circuit/circuit.model';
 import { Constructor } from '../constructor/constructor.model';

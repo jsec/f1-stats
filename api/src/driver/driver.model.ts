@@ -19,6 +19,9 @@ export class Driver extends Model<Driver> {
   number: number;
 
   @Column(DataType.STRING)
+  code: string;
+
+  @Column(DataType.STRING)
   firstName: string;
 
   @Column(DataType.STRING)
