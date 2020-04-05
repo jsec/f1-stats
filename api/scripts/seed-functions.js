@@ -10,4 +10,10 @@ function loadData(file) {
   });
 }
 
-module.exports = { loadData };
+function handleEscapedNulls(value) {
+  if (value === '\\N' || value === '') return null;
+
+  return value;
+}
+
+module.exports = { loadData, handleEscapedNulls };

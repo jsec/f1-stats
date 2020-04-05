@@ -32,12 +32,15 @@ export class Qualification extends Model<Qualification> {
   @Column(DataType.SMALLINT)
   number: number;
 
-  @Column(DataType.DATE)
+  @Column(DataType.SMALLINT)
+  position: number;
+
+  @Column(DataType.TIME)
   q1: Date;
 
-  @Column(DataType.DATE)
+  @Column(DataType.TIME)
   q2: Date;
 
-  @Column(DataType.DATE)
+  @Column(DataType.TIME)
   q3: Date;
 }
