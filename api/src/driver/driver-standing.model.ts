@@ -33,6 +33,6 @@ export class DriverStanding extends Model<DriverStanding> {
   @Column(DataType.STRING)
   positionText: string;
 
-  @Column(DataType.BOOLEAN)
-  win: boolean;
+  @Column(DataType.SMALLINT)
+  wins: number;
 }
