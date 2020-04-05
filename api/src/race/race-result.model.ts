@@ -51,8 +51,8 @@ export class RaceResult extends Model<RaceResult> {
   @Column(DataType.SMALLINT)
   laps: number;
 
-  @Column(DataType.DATE)
-  time: Date;
+  @Column(DataType.STRING)
+  time: string;
 
   @Column(DataType.BIGINT)
   milliseconds: number;
@@ -63,7 +63,7 @@ export class RaceResult extends Model<RaceResult> {
   @Column(DataType.SMALLINT)
   fastestLapRank: number;
 
-  @Column(DataType.DATE)
+  @Column(DataType.TIME)
   fastestLapTime: Date;
 
   @Column(DataType.REAL)
