@@ -14,7 +14,7 @@ import { Race } from './race.model';
 export class ConstructorStanding extends Model<ConstructorStanding> {
   @PrimaryKey
   @Column(DataType.SMALLINT)
-  int: number;
+  id: number;
 
   @ForeignKey(() => Race)
   @Column(DataType.SMALLINT)
