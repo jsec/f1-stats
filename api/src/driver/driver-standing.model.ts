@@ -8,17 +8,22 @@ import {
 } from 'sequelize-typescript';
 
 import { Constructor } from '../constructor/constructor.model';
+import { Driver } from './driver.model';
 import { Race } from '../race/race.model';
 
 @Table
 export class DriverStanding extends Model<DriverStanding> {
   @PrimaryKey
-  @Column(DataType.SMALLINT)
+  @Column(DataType.INTEGER)
   id: number;
 
   @ForeignKey(() => Race)
   @Column(DataType.SMALLINT)
   raceId: number;
+
+  @ForeignKey(() => Driver)
+  @Column(DataType.SMALLINT)
+  driverId: number;
 
   @ForeignKey(() => Constructor)
   @Column(DataType.SMALLINT)
