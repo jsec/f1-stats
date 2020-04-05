@@ -4,11 +4,12 @@ import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from '../filters/http-exception.filter';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CircuitModule } from '../circuit/circuit.module';
 import { DatabaseModule } from '../database/database.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [DatabaseModule, CircuitModule],
   controllers: [AppController],
   providers: [
     AppService,
