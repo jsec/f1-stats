@@ -8,13 +8,14 @@ import {
 } from 'sequelize-typescript';
 
 import { Constructor } from './constructor.model';
-import { Race } from './race.model';
+import { Race } from '../race/race.model';
+import { Status } from '../status/status.model';
 
 @Table
-export class ConstructorStanding extends Model<ConstructorStanding> {
+export class ConstructorResult extends Model<ConstructorResult> {
   @PrimaryKey
   @Column(DataType.SMALLINT)
-  int: number;
+  id: number;
 
   @ForeignKey(() => Race)
   @Column(DataType.SMALLINT)
@@ -27,12 +28,7 @@ export class ConstructorStanding extends Model<ConstructorStanding> {
   @Column(DataType.SMALLINT)
   points: number;
 
+  @ForeignKey(() => Status)
   @Column(DataType.SMALLINT)
-  position: number;
-
-  @Column(DataType.STRING)
-  positionText: string;
-
-  @Column(DataType.SMALLINT)
-  wins: number;
+  statusId: number;
 }

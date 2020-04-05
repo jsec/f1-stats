@@ -7,14 +7,14 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Constructor } from 'src/models/constructor.model';
-import { Driver } from 'src/models/driver.model';
-import { Race } from './race.model';
+import { Constructor } from '../constructor/constructor.model';
+import { Driver } from './driver.model';
+import { Race } from '../race/race.model';
 
 @Table
-export class Qualification extends Model<Qualification> {
+export class DriverStanding extends Model<DriverStanding> {
   @PrimaryKey
-  @Column(DataType.SMALLINT)
+  @Column(DataType.INTEGER)
   id: number;
 
   @ForeignKey(() => Race)
@@ -30,14 +30,14 @@ export class Qualification extends Model<Qualification> {
   constructorId: number;
 
   @Column(DataType.SMALLINT)
-  number: number;
+  points: number;
 
-  @Column(DataType.DATE)
-  q1: Date;
+  @Column(DataType.SMALLINT)
+  position: number;
 
-  @Column(DataType.DATE)
-  q2: Date;
+  @Column(DataType.STRING)
+  positionText: string;
 
-  @Column(DataType.DATE)
-  q3: Date;
+  @Column(DataType.SMALLINT)
+  wins: number;
 }

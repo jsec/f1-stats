@@ -7,22 +7,22 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Constructor } from './constructor.model';
-import { Race } from './race.model';
+import { Driver } from '../driver/driver.model';
+import { Race } from '../race/race.model';
 
 @Table
 export class LapTime extends Model<LapTime> {
   @PrimaryKey
-  @Column(DataType.SMALLINT)
+  @Column(DataType.INTEGER)
   id: number;
 
   @ForeignKey(() => Race)
   @Column(DataType.SMALLINT)
   raceId: number;
 
-  @ForeignKey(() => Constructor)
+  @ForeignKey(() => Driver)
   @Column(DataType.SMALLINT)
-  constructorId: number;
+  driverId: number;
 
   @Column(DataType.SMALLINT)
   lap: number;

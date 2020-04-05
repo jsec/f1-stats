@@ -7,7 +7,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { Circuit } from './circuit.model';
+import { Circuit } from '../circuit/circuit.model';
 
 @Table
 export class Race extends Model<Race> {

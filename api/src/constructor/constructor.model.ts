@@ -16,6 +16,9 @@ export class Constructor extends Model<Constructor> {
   ref: string;
 
   @Column(DataType.STRING)
+  name: string;
+
+  @Column(DataType.STRING)
   nationality: string;
 
   @Column(DataType.STRING)
