@@ -5,11 +5,12 @@ import { AllExceptionsFilter } from '../filters/http-exception.filter';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CircuitModule } from '../circuit/circuit.module';
+import { ConstructorModule } from '../constructor/constructor.module';
 import { DatabaseModule } from '../database/database.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
 
 @Module({
-  imports: [DatabaseModule, CircuitModule],
+  imports: [DatabaseModule, CircuitModule, ConstructorModule],
   controllers: [AppController],
   providers: [
     AppService,
