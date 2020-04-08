@@ -8,9 +8,10 @@ import { CircuitModule } from '../circuit/circuit.module';
 import { ConstructorModule } from '../constructor/constructor.module';
 import { DatabaseModule } from '../database/database.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
+import { TimingModule } from 'src/timing/timing.module';
 
 @Module({
-  imports: [DatabaseModule, CircuitModule, ConstructorModule],
+  imports: [DatabaseModule, CircuitModule, ConstructorModule, TimingModule],
   controllers: [AppController],
   providers: [
     AppService,
