@@ -9,6 +9,7 @@ import { ConstructorModule } from '../constructor/constructor.module';
 import { DatabaseModule } from '../database/database.module';
 import { DriverModule } from '../driver/driver.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
+import { RaceModule } from '../race/race.module';
 import { SeasonModule } from '../season/season.module';
 import { StatusModule } from '../status/status.module';
 import { TimingModule } from '../timing/timing.module';
@@ -19,6 +20,7 @@ import { TimingModule } from '../timing/timing.module';
     ConstructorModule,
     DatabaseModule,
     DriverModule,
+    RaceModule,
     SeasonModule,
     StatusModule,
     TimingModule,
