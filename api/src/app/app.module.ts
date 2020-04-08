@@ -9,6 +9,7 @@ import { ConstructorModule } from '../constructor/constructor.module';
 import { DatabaseModule } from '../database/database.module';
 import { DriverModule } from '../driver/driver.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
+import { StatusModule } from 'src/status/status.module';
 import { TimingModule } from '../timing/timing.module';
 
 @Module({
@@ -17,6 +18,7 @@ import { TimingModule } from '../timing/timing.module';
     ConstructorModule,
     DatabaseModule,
     DriverModule,
+    StatusModule,
     TimingModule,
   ],
   controllers: [AppController],
