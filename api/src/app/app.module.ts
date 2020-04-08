@@ -7,11 +7,18 @@ import { AppService } from './app.service';
 import { CircuitModule } from '../circuit/circuit.module';
 import { ConstructorModule } from '../constructor/constructor.module';
 import { DatabaseModule } from '../database/database.module';
+import { DriverModule } from '../driver/driver.module';
 import { MorganMiddleware } from '@nest-middlewares/morgan';
-import { TimingModule } from 'src/timing/timing.module';
+import { TimingModule } from '../timing/timing.module';
 
 @Module({
-  imports: [DatabaseModule, CircuitModule, ConstructorModule, TimingModule],
+  imports: [
+    CircuitModule,
+    ConstructorModule,
+    DatabaseModule,
+    DriverModule,
+    TimingModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,
