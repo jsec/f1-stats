@@ -1,15 +1,15 @@
-import { Inject, Injectable } from '@nestjs/common';
-
 import { ConstructorResult } from './constructor-result.model';
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ConstructorResultService {
   constructor(
-    @Inject('CONSTRUCTOR_RESULTS_REPOSITORY')
-    private constructorResultRepository: typeof ConstructorResult,
+    @InjectModel(ConstructorResult)
+    private constructorResultModel: typeof ConstructorResult,
   ) {}
 
   public async findAll(): Promise<ConstructorResult[]> {
-    return this.constructorResultRepository.findAll<ConstructorResult>();
+    return this.constructorResultModel.findAll();
   }
 }

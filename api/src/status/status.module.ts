@@ -1,12 +1,12 @@
-import { DatabaseModule } from '../database/database.module';
 import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { Status } from './status.model';
 import { StatusController } from './status.controller';
 import { StatusService } from './status.service';
-import { statusProviders } from './status.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [SequelizeModule.forFeature([Status])],
   controllers: [StatusController],
-  providers: [StatusService, ...statusProviders],
+  providers: [StatusService],
 })
 export class StatusModule {}

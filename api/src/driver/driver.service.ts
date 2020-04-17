@@ -1,14 +1,12 @@
-import { Inject, Injectable } from '@nestjs/common';
-
 import { Driver } from './driver.model';
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class DriverService {
-  constructor(
-    @Inject('DRIVERS_REPOSITORY') private driverRepository: typeof Driver,
-  ) {}
+  constructor(@InjectModel(Driver) private driverModel: typeof Driver) {}
 
   public async findAll(): Promise<Driver[]> {
-    return this.driverRepository.findAll<Driver>();
+    return this.driverModel.findAll();
   }
 }
