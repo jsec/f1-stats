@@ -1,21 +1,18 @@
-import { DatabaseModule } from '../database/database.module';
+import { LapTime } from './lap-time.model';
 import { LapTimeController } from './lap-time.controller';
 import { LapTimeService } from './lap-time.service';
 import { Module } from '@nestjs/common';
+import { PitStop } from './pit-stop.model';
 import { PitStopController } from './pit-stop.controller';
 import { PitStopService } from './pit-stop.service';
+import { Qualification } from './qualification.model';
 import { QualificationController } from './qualification.controller';
 import { QualificationService } from './qualification.service';
-import { timingProviders } from './timing.providers';
+import { SequelizeModule } from '@nestjs/sequelize';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [SequelizeModule.forFeature([LapTime, PitStop, Qualification])],
   controllers: [LapTimeController, PitStopController, QualificationController],
-  providers: [
-    LapTimeService,
-    PitStopService,
-    QualificationService,
-    ...timingProviders,
-  ],
+  providers: [LapTimeService, PitStopService, QualificationService],
 })
 export class TimingModule {}

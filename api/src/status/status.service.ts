@@ -1,14 +1,12 @@
-import { Inject, Injectable } from '@nestjs/common';
-
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
 import { Status } from './status.model';
 
 @Injectable()
 export class StatusService {
-  constructor(
-    @Inject('STATUS_REPOSITORY') private statusRepository: typeof Status,
-  ) {}
+  constructor(@InjectModel(Status) private statusModel: typeof Status) {}
 
   public async findAll(): Promise<Status[]> {
-    return this.statusRepository.findAll();
+    return this.statusModel.findAll();
   }
 }

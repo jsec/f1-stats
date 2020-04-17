@@ -1,15 +1,15 @@
-import { Inject, Injectable } from '@nestjs/common';
-
 import { ConstructorStanding } from './constructor-standing.model';
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ConstructorStandingService {
   constructor(
-    @Inject('CONSTRUCTOR_STANDINGS_REPOSITORY')
-    private constructorStandingRepository: typeof ConstructorStanding,
+    @InjectModel(ConstructorStanding)
+    private constructorStandingModel: typeof ConstructorStanding,
   ) {}
 
   public async findAll(): Promise<ConstructorStanding[]> {
-    return this.constructorStandingRepository.findAll<ConstructorStanding>();
+    return this.constructorStandingModel.findAll();
   }
 }

@@ -1,12 +1,12 @@
-import { Inject, Injectable } from '@nestjs/common';
-
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
 import { Race } from './race.model';
 
 @Injectable()
 export class RaceService {
-  constructor(@Inject('RACE_REPOSITORY') private raceRepository: typeof Race) {}
+  constructor(@InjectModel(Race) private raceModel: typeof Race) {}
 
   public async findAll(): Promise<Race[]> {
-    return this.raceRepository.findAll();
+    return this.raceModel.findAll();
   }
 }
