@@ -48,7 +48,7 @@
     "eslint-config-prettier": "6.7.0",
     "eslint-plugin-import": "2.20.2",
     "import-sort-style-eslint": "6.0.0",
-    "jest": "24.9.0",
+    "jest": "26.0.1",
     "prettier": "1.18.2",
     "prettier-plugin-import-sort": "0.0.3",
     "sequelize-typescript": "1.1.0",
