@@ -38,8 +38,8 @@ import { TimingModule } from '../timing/timing.module';
     RaceModule,
     SeasonModule,
     SequelizeModule.forRoot({
-      username: dbConfig.development.username,
-      password: dbConfig.development.password,
+      username: dbConfig.development.username || undefined,
+      password: dbConfig.development.password || undefined,
       database: dbConfig.development.database,
       host: dbConfig.development.host,
       dialect: dbConfig.development.dialect as Dialect,
