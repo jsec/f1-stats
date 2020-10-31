@@ -1,11 +1,186 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://localhost/f1stats"
+  url      = "postgresql://jsec@localhost/f1stats"
 }
 
-generator client {
-  provider = "prisma-client-js"
+model circuit {
+  id        Int    @id
+  ref       String
+  name      String
+  city      String
+  country   String
+  latitude  Float
+  longitude Float
+  alt       String
+  url       String
+  race      race[]
+}
+
+model constructor {
+  id                   Int                    @id
+  ref                  String
+  name                 String
+  nationality          String
+  url                  String
+  constructor_result   constructor_result[]
+  constructor_standing constructor_standing[]
+  qualification        qualification[]
+  race_result          race_result[]
+}
+
+model constructor_result {
+  id               Int          @id
+  points           Int
+  raceId           Int?
+  constructorRefId Int?
+  statusId         Int?
+  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
+  race             race?        @relation(fields: [raceId], references: [id])
+  status           status?      @relation(fields: [statusId], references: [id])
+}
+
+model constructor_standing {
+  id               Int          @id
+  points           Int
+  position         Int
+  positionText     String
+  wins             Int
+  raceId           Int?
+  constructorRefId Int?
+  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
+  race             race?        @relation(fields: [raceId], references: [id])
+}
+
+model driver {
+  id              Int               @id
+  ref             String
+  number          Int
+  firstName       String
+  lastName        String
+  dob             DateTime
+  nationality     String
+  url             String
+  driver_standing driver_standing[]
+  lap_time        lap_time[]
+  pit_stop        pit_stop[]
+  qualification   qualification[]
+  race_result     race_result[]
+}
+
+model driver_standing {
+  id           Int     @id
+  points       Int
+  position     Int
+  positionText String
+  win          Boolean
+  raceId       Int?
+  driverId     Int?
+  driver       driver? @relation(fields: [driverId], references: [id])
+  race         race?   @relation(fields: [raceId], references: [id])
+}
+
+model lap_time {
+  id           Int     @id
+  lap          Int
+  position     Int
+  time         String
+  milliseconds Int
+  raceId       Int?
+  driverId     Int?
+  driver       driver? @relation(fields: [driverId], references: [id])
+  race         race?   @relation(fields: [raceId], references: [id])
+}
+
+model migrations {
+  id        Int    @default(autoincrement()) @id
+  timestamp Int
+  name      String
+}
+
+model pit_stop {
+  id           Int      @id
+  stop         Int
+  lap          Int
+  time         DateTime
+  duration     String
+  milliseconds Int
+  raceId       Int?
+  driverId     Int?
+  driver       driver?  @relation(fields: [driverId], references: [id])
+  race         race?    @relation(fields: [raceId], references: [id])
+}
+
+model qualification {
+  id               Int          @id
+  number           Int
+  q1               String
+  q2               String
+  q3               String
+  raceId           Int?
+  driverId         Int?
+  constructorRefId Int?
+  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
+  driver           driver?      @relation(fields: [driverId], references: [id])
+  race             race?        @relation(fields: [raceId], references: [id])
+}
+
+model race {
+  id                   Int                    @id
+  year                 Int
+  round                Int
+  name                 String
+  date                 DateTime
+  time                 DateTime
+  url                  String
+  circuitId            Int?
+  circuit              circuit?               @relation(fields: [circuitId], references: [id])
+  constructor_result   constructor_result[]
+  constructor_standing constructor_standing[]
+  driver_standing      driver_standing[]
+  lap_time             lap_time[]
+  pit_stop             pit_stop[]
+  qualification        qualification[]
+  race_result          race_result[]
+}
+
+model race_result {
+  id               Int          @id
+  number           Int
+  grid             Int
+  position         Int
+  positionText     String
+  positionOrder    Int
+  points           Int
+  laps             Int
+  time             String
+  milliseconds     Int
+  fastestLap       Int
+  fastestLapRank   Int
+  fastestLapTime   String
+  fastestLapSpeed  Float
+  raceId           Int?
+  driverId         Int?
+  constructorRefId Int?
+  statusId         Int?
+  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
+  driver           driver?      @relation(fields: [driverId], references: [id])
+  race             race?        @relation(fields: [raceId], references: [id])
+  status           status?      @relation(fields: [statusId], references: [id])
+}
+
+model season {
+  id   Int    @id
+  year Int
+  url  String
+}
+
+model status {
+  id                 Int                  @id
+  status             String
+  constructor_result constructor_result[]
+  race_result        race_result[]
 }
