@@ -1,6 +1,6 @@
-import {InjectModel} from '@nestjs/sequelize';
-import {Injectable} from '@nestjs/common';
-import {Race} from './race.model';
+import { InjectModel } from '@nestjs/sequelize';
+import { Injectable } from '@nestjs/common';
+import { Race } from './race.model';
 
 @Injectable()
 export class RaceService {

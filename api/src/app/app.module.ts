@@ -23,7 +23,6 @@ import { Qualification } from '../timing/qualification.model';
 import { Race } from '../race/race.model';
 import { RaceModule } from '../race/race.module';
 import { RaceResult } from '../race/race-result.model';
-import { Season } from '../season/season.model';
 import { SeasonModule } from '../season/season.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Status } from '../status/status.model';
@@ -55,7 +54,6 @@ import { TimingModule } from '../timing/timing.module';
         Qualification,
         Race,
         RaceResult,
-        Season,
         Status,
       ],
     }),
