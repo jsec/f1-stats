@@ -1,12 +1,12 @@
-import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
-import { LapTime } from './lap-time.model';
+import { LapTimes } from '@prisma/client';
+import { PrismaService } from '../services/prisma.service';
 
 @Injectable()
 export class LapTimeService {
-  constructor(@InjectModel(LapTime) private lapTimeModel: typeof LapTime) {}
+  constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<LapTime[]> {
-    return this.lapTimeModel.findAll();
+  public async findAll(): Promise<LapTimes[]> {
+    return this.prisma.lapTimes.findMany();
   }
 }

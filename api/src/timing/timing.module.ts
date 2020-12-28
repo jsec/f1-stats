@@ -9,10 +9,16 @@ import { Qualification } from './qualification.model';
 import { QualificationController } from './qualification.controller';
 import { QualificationService } from './qualification.service';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { PrismaService } from '../services/prisma.service';
 
 @Module({
   imports: [SequelizeModule.forFeature([LapTime, PitStop, Qualification])],
   controllers: [LapTimeController, PitStopController, QualificationController],
-  providers: [LapTimeService, PitStopService, QualificationService],
+  providers: [
+    LapTimeService,
+    PitStopService,
+    PrismaService,
+    QualificationService,
+  ],
 })
 export class TimingModule {}
