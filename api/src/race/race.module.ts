@@ -6,10 +6,11 @@ import { RaceResultController } from './race-result.controller';
 import { RaceResultService } from './race-result.service';
 import { RaceService } from './race.service';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { PrismaService } from '../services/prisma.service';
 
 @Module({
   imports: [SequelizeModule.forFeature([Race, RaceResult])],
   controllers: [RaceController, RaceResultController],
-  providers: [RaceService, RaceResultService],
+  providers: [PrismaService, RaceService, RaceResultService],
 })
 export class RaceModule {}
