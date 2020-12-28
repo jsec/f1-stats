@@ -1,6 +1,4 @@
 import { Controller, Get } from '@nestjs/common';
-
-import { Driver } from './driver.model';
 import { DriverService } from './driver.service';
 import { Drivers } from '@prisma/client';
 
