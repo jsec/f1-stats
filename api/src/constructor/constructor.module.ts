@@ -9,6 +9,7 @@ import { ConstructorStandingController } from './constructor-standing.controller
 import { ConstructorStandingService } from './constructor-standing.service';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { PrismaService } from '../services/prisma.service';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
     ConstructorService,
     ConstructorResultService,
     ConstructorStandingService,
+    PrismaService,
   ],
 })
 export class ConstructorModule {}
