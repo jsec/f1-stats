@@ -1,14 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-
-import { DriverStanding } from './driver-standing.model';
 import { DriverStandingService } from './driver-standing.service';
+import { DriverStandings } from '@prisma/client';
 
 @Controller('drivers/standings')
 export class DriverStandingController {
   constructor(private driverStandingService: DriverStandingService) {}
 
   @Get()
-  public async getAll(): Promise<DriverStanding[]> {
+  public async getAll(): Promise<DriverStandings[]> {
     return this.driverStandingService.findAll();
   }
 }
