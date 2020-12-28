@@ -4,183 +4,168 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://jsec@localhost/f1stats"
+  url      = "postgresql://jsec@localhost/f1statstest"
 }
 
-model circuit {
-  id        Int    @id
-  ref       String
-  name      String
-  city      String
-  country   String
-  latitude  Float
-  longitude Float
-  alt       String
-  url       String
-  race      race[]
+model Circuits {
+  id        Int      @id
+  ref       String?
+  name      String?
+  city      String?
+  country   String?
+  latitude  Float?
+  longitude Float?
+  alt       String?
+  url       String?
+  createdAt DateTime
+  updatedAt DateTime
 }
 
-model constructor {
-  id                   Int                    @id
-  ref                  String
-  name                 String
-  nationality          String
-  url                  String
-  constructor_result   constructor_result[]
-  constructor_standing constructor_standing[]
-  qualification        qualification[]
-  race_result          race_result[]
+model ConstructorResults {
+  id            Int      @id
+  raceId        Int?
+  constructorId Int?
+  points        Int?
+  statusId      Int?
+  createdAt     DateTime
+  updatedAt     DateTime
 }
 
-model constructor_result {
-  id               Int          @id
-  points           Int
-  raceId           Int?
-  constructorRefId Int?
-  statusId         Int?
-  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
-  race             race?        @relation(fields: [raceId], references: [id])
-  status           status?      @relation(fields: [statusId], references: [id])
+model ConstructorStandings {
+  id            Int      @id
+  raceId        Int?
+  constructorId Int?
+  points        Int?
+  position      Int?
+  positionText  String?
+  wins          Int?
+  createdAt     DateTime
+  updatedAt     DateTime
 }
 
-model constructor_standing {
-  id               Int          @id
-  points           Int
-  position         Int
-  positionText     String
-  wins             Int
-  raceId           Int?
-  constructorRefId Int?
-  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
-  race             race?        @relation(fields: [raceId], references: [id])
+model Constructors {
+  id          Int      @id
+  ref         String?
+  name        String?
+  nationality String?
+  url         String?
+  createdAt   DateTime
+  updatedAt   DateTime
 }
 
-model driver {
-  id              Int               @id
-  ref             String
-  number          Int
-  firstName       String
-  lastName        String
-  dob             DateTime
-  nationality     String
-  url             String
-  driver_standing driver_standing[]
-  lap_time        lap_time[]
-  pit_stop        pit_stop[]
-  qualification   qualification[]
-  race_result     race_result[]
+model DriverStandings {
+  id            Int      @id
+  raceId        Int?
+  driverId      Int?
+  constructorId Int?
+  points        Int?
+  position      Int?
+  positionText  String?
+  wins          Int?
+  createdAt     DateTime
+  updatedAt     DateTime
 }
 
-model driver_standing {
-  id           Int     @id
-  points       Int
-  position     Int
-  positionText String
-  win          Boolean
+model Drivers {
+  id          Int       @id
+  ref         String?
+  number      Int?
+  code        String?
+  firstName   String?
+  lastName    String?
+  dob         DateTime?
+  nationality String?
+  url         String?
+  createdAt   DateTime
+  updatedAt   DateTime
+}
+
+model LapTimes {
+  id           Int       @id
   raceId       Int?
   driverId     Int?
-  driver       driver? @relation(fields: [driverId], references: [id])
-  race         race?   @relation(fields: [raceId], references: [id])
+  lap          Int?
+  position     Int?
+  time         DateTime?
+  milliseconds Int?
+  createdAt    DateTime
+  updatedAt    DateTime
 }
 
-model lap_time {
-  id           Int     @id
-  lap          Int
-  position     Int
-  time         String
-  milliseconds Int
+model PitStops {
+  id           Int       @id
   raceId       Int?
   driverId     Int?
-  driver       driver? @relation(fields: [driverId], references: [id])
-  race         race?   @relation(fields: [raceId], references: [id])
+  stop         Int?
+  lap          Int?
+  time         DateTime?
+  duration     Float?
+  milliseconds Int?
+  createdAt    DateTime
+  updatedAt    DateTime
 }
 
-model migrations {
-  id        Int    @default(autoincrement()) @id
-  timestamp Int
-  name      String
+model Qualifications {
+  id            Int       @id
+  raceId        Int?
+  driverId      Int?
+  constructorId Int?
+  number        Int?
+  position      Int?
+  q1            DateTime?
+  q2            DateTime?
+  q3            DateTime?
+  createdAt     DateTime
+  updatedAt     DateTime
 }
 
-model pit_stop {
-  id           Int      @id
-  stop         Int
-  lap          Int
-  time         DateTime
-  duration     String
-  milliseconds Int
-  raceId       Int?
-  driverId     Int?
-  driver       driver?  @relation(fields: [driverId], references: [id])
-  race         race?    @relation(fields: [raceId], references: [id])
+model RaceResults {
+  id              Int       @id
+  raceId          Int?
+  driverId        Int?
+  constructorId   Int?
+  number          Int?
+  grid            Int?
+  position        Int?
+  positionText    String?
+  positionOrder   Int?
+  points          Int?
+  laps            Int?
+  time            String?
+  milliseconds    Int?
+  fastestLap      Int?
+  fastestLapRank  Int?
+  fastestLapTime  DateTime?
+  fastestLapSpeed Float?
+  statusId        Int?
+  createdAt       DateTime
+  updatedAt       DateTime
 }
 
-model qualification {
-  id               Int          @id
-  number           Int
-  q1               String
-  q2               String
-  q3               String
-  raceId           Int?
-  driverId         Int?
-  constructorRefId Int?
-  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
-  driver           driver?      @relation(fields: [driverId], references: [id])
-  race             race?        @relation(fields: [raceId], references: [id])
+model Races {
+  id        Int       @id
+  year      Int?
+  round     Int?
+  circuitId Int?
+  name      String?
+  date      DateTime?
+  time      DateTime?
+  url       String?
+  createdAt DateTime
+  updatedAt DateTime
 }
 
-model race {
-  id                   Int                    @id
-  year                 Int
-  round                Int
-  name                 String
-  date                 DateTime
-  time                 DateTime
-  url                  String
-  circuitId            Int?
-  circuit              circuit?               @relation(fields: [circuitId], references: [id])
-  constructor_result   constructor_result[]
-  constructor_standing constructor_standing[]
-  driver_standing      driver_standing[]
-  lap_time             lap_time[]
-  pit_stop             pit_stop[]
-  qualification        qualification[]
-  race_result          race_result[]
+model Seasons {
+  id        Int      @id
+  year      Int?
+  url       String?
+  createdAt DateTime
+  updatedAt DateTime
 }
 
-model race_result {
-  id               Int          @id
-  number           Int
-  grid             Int
-  position         Int
-  positionText     String
-  positionOrder    Int
-  points           Int
-  laps             Int
-  time             String
-  milliseconds     Int
-  fastestLap       Int
-  fastestLapRank   Int
-  fastestLapTime   String
-  fastestLapSpeed  Float
-  raceId           Int?
-  driverId         Int?
-  constructorRefId Int?
-  statusId         Int?
-  constructor      constructor? @relation(fields: [constructorRefId], references: [id])
-  driver           driver?      @relation(fields: [driverId], references: [id])
-  race             race?        @relation(fields: [raceId], references: [id])
-  status           status?      @relation(fields: [statusId], references: [id])
-}
-
-model season {
-  id   Int    @id
-  year Int
-  url  String
-}
-
-model status {
-  id                 Int                  @id
-  status             String
-  constructor_result constructor_result[]
-  race_result        race_result[]
+model Statuses {
+  id        Int      @id
+  status    String?
+  createdAt DateTime
+  updatedAt DateTime
 }
