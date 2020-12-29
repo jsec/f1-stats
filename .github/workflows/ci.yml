@@ -29,6 +29,9 @@ jobs:
     
     - name: Install dependencies
       run: cd api && npm install
+    
+    - name: Generate database client
+      run: cd api && npx prisma generate
 
     - name: Build API
       run: cd api && npm run prebuild && npm run build
