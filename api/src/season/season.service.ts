@@ -1,12 +1,12 @@
-import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
-import { Season } from './season.model';
+import { PrismaService } from '../services/prisma.service';
+import { Seasons } from '@prisma/client';
 
 @Injectable()
 export class SeasonService {
-  constructor(@InjectModel(Season) private seasonModel: typeof Season) {}
+  constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<Season[]> {
-    return this.seasonModel.findAll();
+  public async findAll(): Promise<Seasons[]> {
+    return this.prisma.seasons.findMany();
   }
 }

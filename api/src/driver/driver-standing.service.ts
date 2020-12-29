@@ -1,15 +1,12 @@
-import { DriverStanding } from './driver-standing.model';
-import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/services/prisma.service';
+import { DriverStandings } from '@prisma/client';
 
 @Injectable()
 export class DriverStandingService {
-  constructor(
-    @InjectModel(DriverStanding)
-    private driverStandingModel: typeof DriverStanding,
-  ) {}
+  constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<DriverStanding[]> {
-    return this.driverStandingModel.findAll();
+  public async findAll(): Promise<DriverStandings[]> {
+    return this.prisma.driverStandings.findMany();
   }
 }

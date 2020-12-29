@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
-import { Season } from './season.model';
 import { SeasonController } from './season.controller';
 import { SeasonService } from './season.service';
-import { SequelizeModule } from '@nestjs/sequelize';
+import { PrismaService } from '../services/prisma.service';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Season])],
   controllers: [SeasonController],
-  providers: [SeasonService],
+  providers: [SeasonService, PrismaService],
 })
 export class SeasonModule {}

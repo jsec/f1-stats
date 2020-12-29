@@ -1,15 +1,12 @@
-import { ConstructorStanding } from './constructor-standing.model';
-import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../services/prisma.service';
+import { ConstructorStandings } from '@prisma/client';
 
 @Injectable()
 export class ConstructorStandingService {
-  constructor(
-    @InjectModel(ConstructorStanding)
-    private constructorStandingModel: typeof ConstructorStanding,
-  ) {}
+  constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<ConstructorStanding[]> {
-    return this.constructorStandingModel.findAll();
+  public async findAll(): Promise<ConstructorStandings[]> {
+    return this.prisma.constructorStandings.findMany();
   }
 }

@@ -1,12 +1,12 @@
-import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
-import { Status } from './status.model';
+import { PrismaService } from '../services/prisma.service';
+import { Statuses } from '@prisma/client';
 
 @Injectable()
 export class StatusService {
-  constructor(@InjectModel(Status) private statusModel: typeof Status) {}
+  constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<Status[]> {
-    return this.statusModel.findAll();
+  public async findAll(): Promise<Statuses[]> {
+    return this.prisma.statuses.findMany();
   }
 }

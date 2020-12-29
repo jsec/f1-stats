@@ -1,14 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-
-import { ConstructorResult } from './constructor-result.model';
 import { ConstructorResultService } from './constructor-result.service';
+import { ConstructorResults } from '@prisma/client';
 
 @Controller('constructors/results')
 export class ConstructorResultController {
   constructor(private constructorResultService: ConstructorResultService) {}
 
   @Get()
-  public async getAll(): Promise<ConstructorResult[]> {
+  public async getAll(): Promise<ConstructorResults[]> {
     return this.constructorResultService.findAll();
   }
 }
