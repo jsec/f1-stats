@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "2.34.0",
     "csv-parse": "4.10.1",
     "eslint": "6.7.2",
-    "eslint-config-prettier": "6.7.0",
+    "eslint-config-prettier": "6.15.0",
     "eslint-plugin-import": "2.21.2",
     "import-sort-style-eslint": "6.0.0",
     "jest": "26.1.0",
