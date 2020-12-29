@@ -1,16 +1,16 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { APP_FILTER } from '@nestjs/core';
-import { AllExceptionsFilter } from '../filters/http-exception.filter';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CircuitModule } from '../circuit/circuit.module';
-import { ConstructorModule } from '../constructor/constructor.module';
-import { DriverModule } from '../driver/driver.module';
-import { MorganMiddleware } from '@nest-middlewares/morgan';
-import { RaceModule } from '../race/race.module';
-import { SeasonModule } from '../season/season.module';
-import { StatusModule } from '../status/status.module';
-import { TimingModule } from '../timing/timing.module';
+import { MiddlewareConsumer, Module } from "@nestjs/common";
+import { APP_FILTER } from "@nestjs/core";
+import { AllExceptionsFilter } from "../filters/http-exception.filter";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { CircuitModule } from "../circuit/circuit.module";
+import { ConstructorModule } from "../constructor/constructor.module";
+import { DriverModule } from "../driver/driver.module";
+import { RaceModule } from "../race/race.module";
+import { SeasonModule } from "../season/season.module";
+import { StatusModule } from "../status/status.module";
+import { TimingModule } from "../timing/timing.module";
+import { LoggerMiddleware } from "../middlewares/logger.middleware";
 
 @Module({
   imports: [
@@ -33,7 +33,6 @@ import { TimingModule } from '../timing/timing.module';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer): void {
-    MorganMiddleware.configure('dev');
-    consumer.apply(MorganMiddleware).forRoutes('/');
+    consumer.apply(LoggerMiddleware).forRoutes("/");
   }
 }
