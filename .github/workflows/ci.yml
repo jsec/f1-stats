@@ -20,9 +20,9 @@ jobs:
     steps:
     # Sets up Node
     - name: Setup Node.js for use with actions
-      uses: actions/setup-node@v1.1.0
+      uses: actions/setup-node@v2
       with:
-        version: 13.8.0
+        version: 14.10.0
 
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
