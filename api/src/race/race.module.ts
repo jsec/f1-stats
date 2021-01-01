@@ -7,6 +7,6 @@ import { PrismaService } from '../services/prisma.service';
 
 @Module({
   controllers: [RaceController, RaceResultController],
-  providers: [PrismaService, RaceService, RaceResultService],
+  providers: [PrismaService, RaceService, RaceResultService]
 })
 export class RaceModule {}

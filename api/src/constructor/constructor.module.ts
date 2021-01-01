@@ -11,13 +11,13 @@ import { PrismaService } from '../services/prisma.service';
   controllers: [
     ConstructorController,
     ConstructorResultController,
-    ConstructorStandingController,
+    ConstructorStandingController
   ],
   providers: [
     ConstructorService,
     ConstructorResultService,
     ConstructorStandingService,
-    PrismaService,
-  ],
+    PrismaService
+  ]
 })
 export class ConstructorModule {}

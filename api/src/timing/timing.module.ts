@@ -13,7 +13,7 @@ import { PrismaService } from '../services/prisma.service';
     LapTimeService,
     PitStopService,
     PrismaService,
-    QualificationService,
-  ],
+    QualificationService
+  ]
 })
 export class TimingModule {}

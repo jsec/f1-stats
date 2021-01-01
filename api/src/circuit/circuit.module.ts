@@ -5,6 +5,6 @@ import { PrismaService } from '../services/prisma.service';
 
 @Module({
   controllers: [CircuitController],
-  providers: [CircuitService, PrismaService],
+  providers: [CircuitService, PrismaService]
 })
 export class CircuitModule {}
