@@ -9,11 +9,7 @@ import { ConstructorStandingController } from './constructor-standing.controller
 import { ConstructorStandingService } from './constructor-standing.service';
 
 @Module({
-  controllers: [
-    ConstructorController,
-    ConstructorResultController,
-    ConstructorStandingController
-  ],
+  controllers: [ ConstructorController, ConstructorResultController, ConstructorStandingController ],
   providers: [
     ConstructorService,
     ConstructorResultService,

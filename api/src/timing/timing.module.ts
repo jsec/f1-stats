@@ -9,7 +9,7 @@ import { QualificationController } from './qualification.controller';
 import { QualificationService } from './qualification.service';
 
 @Module({
-  controllers: [LapTimeController, PitStopController, QualificationController],
+  controllers: [ LapTimeController, PitStopController, QualificationController ],
   providers: [
     LapTimeService,
     PitStopService,

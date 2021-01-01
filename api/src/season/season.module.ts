@@ -6,6 +6,6 @@ import { SeasonService } from './season.service';
 
 @Module({
   controllers: [SeasonController],
-  providers: [SeasonService, PrismaService]
+  providers: [ SeasonService, PrismaService ]
 })
 export class SeasonModule {}

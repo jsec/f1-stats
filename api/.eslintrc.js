@@ -20,9 +20,33 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
-    'object-curly-newline': [
-      'error',
+    'array-bracket-newline': [
+      'warn',
       {
+        multiline: true,
+        minItems: 4
+      }
+    ],
+    'array-bracket-spacing': [
+      'warn',
+      'always',
+      {
+        singleValue: false
+      }
+    ],
+    'array-element-newline': [
+      'warn',
+      {
+        multiline: true,
+        minItems: 4
+      }
+    ],
+    'object-property-newline': 'warn',
+    'object-curly-newline': [
+      'warn',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: 'never',
         ImportDeclaration: { multiline: true, minProperties: 4 },
         ExportDeclaration: { multiline: true, minProperties: 4 }
       }
