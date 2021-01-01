@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { LapTimes } from '@prisma/client';
+
 import { PrismaService } from '../services/prisma.service';
 
 @Injectable()

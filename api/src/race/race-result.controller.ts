@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { RaceResultService } from './race-result.service';
 import { RaceResults } from '@prisma/client';
+
+import { RaceResultService } from './race-result.service';
 
 @Controller('races/results')
 export class RaceResultController {

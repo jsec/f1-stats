@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { CircuitService } from './circuit.service';
 import { Circuits } from '@prisma/client';
+
+import { CircuitService } from './circuit.service';
 
 @Controller('circuits')
 export class CircuitController {

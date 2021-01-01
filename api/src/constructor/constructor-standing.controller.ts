@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { ConstructorStandingService } from './constructor-standing.service';
 import { ConstructorStandings } from '@prisma/client';
+
+import { ConstructorStandingService } from './constructor-standing.service';
 
 @Controller('constructors/standings')
 export class ConstructorStandingController {

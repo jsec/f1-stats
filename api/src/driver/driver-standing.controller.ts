@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { DriverStandingService } from './driver-standing.service';
 import { DriverStandings } from '@prisma/client';
+
+import { DriverStandingService } from './driver-standing.service';
 
 @Controller('drivers/standings')
 export class DriverStandingController {

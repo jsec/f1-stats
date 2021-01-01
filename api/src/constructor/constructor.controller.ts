@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { ConstructorService } from './constructor.service';
 import { Constructors } from '@prisma/client';
+
+import { ConstructorService } from './constructor.service';
 
 @Controller('constructors')
 export class ConstructorController {

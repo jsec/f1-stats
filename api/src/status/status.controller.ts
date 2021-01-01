@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { StatusService } from './status.service';
 import { Statuses } from '@prisma/client';
+
+import { StatusService } from './status.service';
 
 @Controller('statuses')
 export class StatusController {
