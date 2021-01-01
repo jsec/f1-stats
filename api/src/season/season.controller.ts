@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { SeasonService } from './season.service';
 import { Seasons } from '@prisma/client';
+
+import { SeasonService } from './season.service';
 
 @Controller('seasons')
 export class SeasonController {

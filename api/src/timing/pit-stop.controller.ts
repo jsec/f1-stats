@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
+import { PitStops } from '@prisma/client';
 
 import { PitStopService } from './pit-stop.service';
-import { PitStops } from '@prisma/client';
 
 @Controller('pitStops')
 export class PitStopController {

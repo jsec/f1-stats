@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { QualificationService } from './qualification.service';
 import { Qualifications } from '@prisma/client';
+
+import { QualificationService } from './qualification.service';
 
 @Controller('qualifications')
 export class QualificationController {

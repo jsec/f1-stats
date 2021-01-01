@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
+import { LapTimes } from '@prisma/client';
 
 import { LapTimeService } from './lap-time.service';
-import { LapTimes } from '@prisma/client';
 
 @Controller('lapTimes')
 export class LapTimeController {
