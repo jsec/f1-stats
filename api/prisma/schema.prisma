@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://jsec@localhost/f1statstest"
+  url      = "postgresql://jsec@localhost/f1stats_relations"
 }
 
 model Circuits {
@@ -22,17 +22,20 @@ model Circuits {
 }
 
 model ConstructorResults {
-  id            Int      @id
+  id            Int           @id
   raceId        Int?
   constructorId Int?
   points        Int?
   statusId      Int?
   createdAt     DateTime
   updatedAt     DateTime
+  Constructors  Constructors? @relation(fields: [constructorId], references: [id])
+  Races         Races?        @relation(fields: [raceId], references: [id])
+  Statuses      Statuses?     @relation(fields: [statusId], references: [id])
 }
 
 model ConstructorStandings {
-  id            Int      @id
+  id            Int           @id
   raceId        Int?
   constructorId Int?
   points        Int?
@@ -41,20 +44,27 @@ model ConstructorStandings {
   wins          Int?
   createdAt     DateTime
   updatedAt     DateTime
+  Constructors  Constructors? @relation(fields: [constructorId], references: [id])
+  Races         Races?        @relation(fields: [raceId], references: [id])
 }
 
 model Constructors {
-  id          Int      @id
-  ref         String?
-  name        String?
-  nationality String?
-  url         String?
-  createdAt   DateTime
-  updatedAt   DateTime
+  id                   Int                    @id
+  ref                  String?
+  name                 String?
+  nationality          String?
+  url                  String?
+  createdAt            DateTime
+  updatedAt            DateTime
+  ConstructorResults   ConstructorResults[]
+  ConstructorStandings ConstructorStandings[]
+  DriverStandings      DriverStandings[]
+  Qualifications       Qualifications[]
+  RaceResults          RaceResults[]
 }
 
 model DriverStandings {
-  id            Int      @id
+  id            Int           @id
   raceId        Int?
   driverId      Int?
   constructorId Int?
@@ -64,20 +74,28 @@ model DriverStandings {
   wins          Int?
   createdAt     DateTime
   updatedAt     DateTime
+  Constructors  Constructors? @relation(fields: [constructorId], references: [id])
+  Drivers       Drivers?      @relation(fields: [driverId], references: [id])
+  Races         Races?        @relation(fields: [raceId], references: [id])
 }
 
 model Drivers {
-  id          Int       @id
-  ref         String?
-  number      Int?
-  code        String?
-  firstName   String?
-  lastName    String?
-  dob         DateTime?
-  nationality String?
-  url         String?
-  createdAt   DateTime
-  updatedAt   DateTime
+  id              Int               @id
+  ref             String?
+  number          Int?
+  code            String?
+  firstName       String?
+  lastName        String?
+  dob             DateTime?
+  nationality     String?
+  url             String?
+  createdAt       DateTime
+  updatedAt       DateTime
+  DriverStandings DriverStandings[]
+  LapTimes        LapTimes[]
+  PitStops        PitStops[]
+  Qualifications  Qualifications[]
+  RaceResults     RaceResults[]
 }
 
 model LapTimes {
@@ -90,6 +108,8 @@ model LapTimes {
   milliseconds Int?
   createdAt    DateTime
   updatedAt    DateTime
+  Drivers      Drivers?  @relation(fields: [driverId], references: [id])
+  Races        Races?    @relation(fields: [raceId], references: [id])
 }
 
 model PitStops {
@@ -103,10 +123,12 @@ model PitStops {
   milliseconds Int?
   createdAt    DateTime
   updatedAt    DateTime
+  Drivers      Drivers?  @relation(fields: [driverId], references: [id])
+  Races        Races?    @relation(fields: [raceId], references: [id])
 }
 
 model Qualifications {
-  id            Int       @id
+  id            Int           @id
   raceId        Int?
   driverId      Int?
   constructorId Int?
@@ -117,10 +139,13 @@ model Qualifications {
   q3            DateTime?
   createdAt     DateTime
   updatedAt     DateTime
+  Constructors  Constructors? @relation(fields: [constructorId], references: [id])
+  Drivers       Drivers?      @relation(fields: [driverId], references: [id])
+  Races         Races?        @relation(fields: [raceId], references: [id])
 }
 
 model RaceResults {
-  id              Int       @id
+  id              Int           @id
   raceId          Int?
   driverId        Int?
   constructorId   Int?
@@ -140,19 +165,32 @@ model RaceResults {
   statusId        Int?
   createdAt       DateTime
   updatedAt       DateTime
+  Constructors    Constructors? @relation(fields: [constructorId], references: [id])
+  Drivers         Drivers?      @relation(fields: [driverId], references: [id])
+  Races           Races?        @relation(fields: [raceId], references: [id])
+  Statuses        Statuses?     @relation(fields: [statusId], references: [id])
 }
 
 model Races {
-  id        Int       @id
-  year      Int?
-  round     Int?
-  circuitId Int?
-  name      String?
-  date      DateTime?
-  time      DateTime?
-  url       String?
-  createdAt DateTime
-  updatedAt DateTime
+  id                   Int                    @id
+  year                 Int?
+  round                Int?
+  circuitId            Int?
+  name                 String?
+  date                 DateTime?
+  time                 DateTime?
+  url                  String?
+  createdAt            DateTime
+  updatedAt            DateTime
+  Races                Races?                 @relation("RacesToRaces_circuitId", fields: [circuitId], references: [id])
+  ConstructorResults   ConstructorResults[]
+  ConstructorStandings ConstructorStandings[]
+  DriverStandings      DriverStandings[]
+  LapTimes             LapTimes[]
+  PitStops             PitStops[]
+  Qualifications       Qualifications[]
+  RaceResults          RaceResults[]
+  other_Races          Races[]                @relation("RacesToRaces_circuitId")
 }
 
 model Seasons {
@@ -164,8 +202,10 @@ model Seasons {
 }
 
 model Statuses {
-  id        Int      @id
-  status    String?
-  createdAt DateTime
-  updatedAt DateTime
+  id                 Int                  @id
+  status             String?
+  createdAt          DateTime
+  updatedAt          DateTime
+  ConstructorResults ConstructorResults[]
+  RaceResults        RaceResults[]
 }
