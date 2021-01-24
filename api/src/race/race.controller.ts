@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Races } from '@prisma/client';
+import { Race } from '@prisma/client';
 
 import { RaceService } from './race.service';
 
@@ -8,7 +8,7 @@ export class RaceController {
   constructor(private raceService: RaceService) {}
 
   @Get()
-  public async getAll(): Promise<Races[]> {
+  public async getAll(): Promise<Race[]> {
     return this.raceService.findAll();
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { LapTimes } from '@prisma/client';
+import { LapTime } from '@prisma/client';
 
 import { PrismaService } from '../services/prisma.service';
 
@@ -7,7 +7,7 @@ import { PrismaService } from '../services/prisma.service';
 export class LapTimeService {
   constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<LapTimes[]> {
-    return this.prisma.lapTimes.findMany();
+  public async findAll(): Promise<LapTime[]> {
+    return this.prisma.lapTime.findMany();
   }
 }

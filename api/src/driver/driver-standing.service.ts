@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DriverStandings } from '@prisma/client';
+import { DriverStanding } from '@prisma/client';
 
 import { PrismaService } from '../services/prisma.service';
 
@@ -7,7 +7,7 @@ import { PrismaService } from '../services/prisma.service';
 export class DriverStandingService {
   constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<DriverStandings[]> {
-    return this.prisma.driverStandings.findMany();
+  public async findAll(): Promise<DriverStanding[]> {
+    return this.prisma.driverStanding.findMany();
   }
 }

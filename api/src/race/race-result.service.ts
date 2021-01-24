@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { RaceResults } from '@prisma/client';
+import { RaceResult } from '@prisma/client';
 
 import { PrismaService } from '../services/prisma.service';
 
@@ -7,7 +7,7 @@ import { PrismaService } from '../services/prisma.service';
 export class RaceResultService {
   constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<RaceResults[]> {
-    return this.prisma.raceResults.findMany();
+  public async findAll(): Promise<RaceResult[]> {
+    return this.prisma.raceResult.findMany();
   }
 }

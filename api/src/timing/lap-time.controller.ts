@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { LapTimes } from '@prisma/client';
+import { LapTime } from '@prisma/client';
 
 import { LapTimeService } from './lap-time.service';
 
@@ -8,7 +8,7 @@ export class LapTimeController {
   constructor(private lapTimeService: LapTimeService) {}
 
   @Get()
-  public async getAll(): Promise<LapTimes[]> {
+  public async getAll(): Promise<LapTime[]> {
     return this.lapTimeService.findAll();
   }
 }
