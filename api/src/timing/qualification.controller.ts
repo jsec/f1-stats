@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Qualifications } from '@prisma/client';
+import { Qualification } from '@prisma/client';
 
 import { QualificationService } from './qualification.service';
 
@@ -8,7 +8,7 @@ export class QualificationController {
   constructor(private qualificationService: QualificationService) {}
 
   @Get()
-  public async getAll(): Promise<Qualifications[]> {
+  public async getAll(): Promise<Qualification[]> {
     return this.qualificationService.findAll();
   }
 }

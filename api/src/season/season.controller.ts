@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Seasons } from '@prisma/client';
+import { Season } from '@prisma/client';
 
 import { SeasonService } from './season.service';
 
@@ -8,7 +8,7 @@ export class SeasonController {
   constructor(private seasonService: SeasonService) {}
 
   @Get()
-  public async getAll(): Promise<Seasons[]> {
+  public async getAll(): Promise<Season[]> {
     return this.seasonService.findAll();
   }
 }

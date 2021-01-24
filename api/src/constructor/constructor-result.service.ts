@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ConstructorResults } from '@prisma/client';
+import { ConstructorResult } from '@prisma/client';
 
 import { PrismaService } from '../services/prisma.service';
 
@@ -7,7 +7,7 @@ import { PrismaService } from '../services/prisma.service';
 export class ConstructorResultService {
   constructor(private prisma: PrismaService) {}
 
-  public async findAll(): Promise<ConstructorResults[]> {
-    return this.prisma.constructorResults.findMany();
+  public async findAll(): Promise<ConstructorResult[]> {
+    return this.prisma.constructorResult.findMany();
   }
 }

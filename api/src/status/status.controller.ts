@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Statuses } from '@prisma/client';
+import { Status } from '@prisma/client';
 
 import { StatusService } from './status.service';
 
@@ -8,7 +8,7 @@ export class StatusController {
   constructor(private statusService: StatusService) {}
 
   @Get()
-  public async getAll(): Promise<Statuses[]> {
+  public async getAll(): Promise<Status[]> {
     return this.statusService.findAll();
   }
 }
