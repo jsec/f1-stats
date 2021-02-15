@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaService } from '../services/prisma.service';
+import { PrismaService } from '../../core';
 import { ConstructorController } from './constructor.controller';
 import { ConstructorService } from './constructor.service';
 import { ConstructorResultController } from './constructor-result.controller';
