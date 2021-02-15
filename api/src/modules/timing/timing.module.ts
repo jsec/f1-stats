@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaService } from '../services/prisma.service';
+import { PrismaService } from '../../core';
 import { LapTimeController } from './lap-time.controller';
 import { LapTimeService } from './lap-time.service';
 import { PitStopController } from './pit-stop.controller';

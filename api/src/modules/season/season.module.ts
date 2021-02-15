@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaService } from '../services/prisma.service';
+import { PrismaService } from '../../core';
 import { SeasonController } from './season.controller';
 import { SeasonService } from './season.service';
 
