@@ -1,5 +1,6 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
+import { GraphQLModule } from '@nestjs/graphql';
 
 import { AllExceptionsFilter, LoggerMiddleware } from '../core';
 import { CircuitModule } from '../modules/circuit/circuit.module';
@@ -17,6 +18,7 @@ import { AppService } from './app.service';
     CircuitModule,
     ConstructorModule,
     DriverModule,
+    GraphQLModule.forRoot(),
     RaceModule,
     SeasonModule,
     StatusModule,
