@@ -6,8 +6,8 @@ export class SeasonModel {
   id: number;
 
   @Field()
-  year: number | null;
+  year: number;
 
   @Field()
-  url: string | null;
+  url: string;
 }

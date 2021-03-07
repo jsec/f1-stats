@@ -181,8 +181,8 @@ model RaceResult {
 
 model Season {
   id        Int      @id
-  year      Int?
-  url       String?
+  year      Int
+  url       String
   createdAt DateTime
   updatedAt DateTime
 }
