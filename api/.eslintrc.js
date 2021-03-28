@@ -41,6 +41,12 @@ module.exports = {
         minItems: 4
       }
     ],
+    'max-len': [
+      'warn',
+      {
+        code: 120
+      }
+    ],
     'object-property-newline': 'warn',
     'object-curly-newline': [
       'warn',
