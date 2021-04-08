@@ -1,13 +1,18 @@
 import { Module } from '@nestjs/common';
 
 import { PrismaService } from '../../core';
-import { DriverController } from './driver.controller';
+import { DriverResolver } from './driver.resolver';
 import { DriverService } from './driver.service';
-import { DriverStandingController } from './driver-standing.controller';
+import { DriverStandingResolver } from './driver-standing.resolver';
 import { DriverStandingService } from './driver-standing.service';
 
 @Module({
-  controllers: [ DriverController, DriverStandingController ],
-  providers: [ DriverService, DriverStandingService, PrismaService ]
+  providers: [
+DriverResolver,
+DriverService,
+DriverStandingResolver,
+DriverStandingService,
+PrismaService
+]
 })
 export class DriverModule {}

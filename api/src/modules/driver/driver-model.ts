@@ -6,26 +6,26 @@ export class DriverModel {
   id: number;
 
   @Field()
-  ref?: string;
+  ref: string;
 
   @Field()
-  number?: number;
+  number: number | null;
 
   @Field()
-  code?: string;
+  code: string;
 
   @Field()
-  firstName?: string;
+  firstName: string;
 
   @Field()
-  lastName?: string;
+  lastName: string;
 
   @Field()
-  dob?: Date;
+  dob: Date;
 
   @Field()
-  nationality?: string;
+  nationality: string;
 
   @Field()
-  url?: string;
+  url: string;
 }

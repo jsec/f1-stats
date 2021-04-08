@@ -12,7 +12,7 @@ export class DriverStandingModel {
   driverId: number;
 
   @Field()
-  constructorId: number;
+  constructorId: number | null;
 
   @Field()
   points: number;
