@@ -9,14 +9,14 @@ datasource db {
 
 model Circuit {
   id        Int      @id
-  ref       String?
-  name      String?
-  city      String?
-  country   String?
-  latitude  Float?
-  longitude Float?
-  alt       String?
-  url       String?
+  ref       String
+  name      String
+  city      String
+  country   String
+  latitude  Float
+  longitude Float
+  alt       String
+  url       String
   createdAt DateTime
   updatedAt DateTime
   Race      Race[]
@@ -24,10 +24,10 @@ model Circuit {
 
 model Constructor {
   id                  Int                   @id
-  ref                 String?
-  name                String?
-  nationality         String?
-  url                 String?
+  ref                 String
+  name                String
+  nationality         String
+  url                 String
   createdAt           DateTime
   updatedAt           DateTime
   ConstructorResult   ConstructorResult[]
@@ -52,14 +52,14 @@ model ConstructorResult {
 
 model Driver {
   id             Int              @id
-  ref            String?
+  ref            String
   number         Int?
-  code           String?
-  firstName      String?
-  lastName       String?
-  dob            DateTime?
-  nationality    String?
-  url            String?
+  code           String
+  firstName      String
+  lastName       String
+  dob            DateTime
+  nationality    String
+  url            String
   createdAt      DateTime
   updatedAt      DateTime
   DriverStanding DriverStanding[]
@@ -71,78 +71,78 @@ model Driver {
 
 model DriverStanding {
   id            Int          @id
-  raceId        Int?
-  driverId      Int?
+  raceId        Int
+  driverId      Int
   constructorId Int?
-  points        Int?
-  position      Int?
-  positionText  String?
-  wins          Int?
+  points        Int
+  position      Int
+  positionText  String
+  wins          Int
   createdAt     DateTime
   updatedAt     DateTime
   Constructor   Constructor? @relation(fields: [constructorId], references: [id])
-  Driver        Driver?      @relation(fields: [driverId], references: [id])
-  Race          Race?        @relation(fields: [raceId], references: [id])
+  Driver        Driver       @relation(fields: [driverId], references: [id])
+  Race          Race         @relation(fields: [raceId], references: [id])
 }
 
 model LapTime {
-  id           Int       @id
-  raceId       Int?
-  driverId     Int?
-  lap          Int?
-  position     Int?
-  time         DateTime?
-  milliseconds Int?
+  id           Int      @id
+  raceId       Int
+  driverId     Int
+  lap          Int
+  position     Int
+  time         DateTime
+  milliseconds Int
   createdAt    DateTime
   updatedAt    DateTime
-  Driver       Driver?   @relation(fields: [driverId], references: [id])
-  Race         Race?     @relation(fields: [raceId], references: [id])
+  Driver       Driver   @relation(fields: [driverId], references: [id])
+  Race         Race     @relation(fields: [raceId], references: [id])
 }
 
 model PitStop {
-  id           Int       @id
-  raceId       Int?
-  driverId     Int?
-  stop         Int?
-  lap          Int?
-  time         DateTime?
-  duration     Float?
-  milliseconds Int?
+  id           Int      @id
+  raceId       Int
+  driverId     Int
+  stop         Int
+  lap          Int
+  time         DateTime
+  duration     Float
+  milliseconds Int
   createdAt    DateTime
   updatedAt    DateTime
-  Driver       Driver?   @relation(fields: [driverId], references: [id])
-  Race         Race?     @relation(fields: [raceId], references: [id])
+  Driver       Driver   @relation(fields: [driverId], references: [id])
+  Race         Race     @relation(fields: [raceId], references: [id])
 }
 
 model Qualification {
-  id            Int          @id
-  raceId        Int?
-  driverId      Int?
-  constructorId Int?
-  number        Int?
-  position      Int?
+  id            Int         @id
+  raceId        Int
+  driverId      Int
+  constructorId Int
+  number        Int
+  position      Int
   q1            DateTime?
   q2            DateTime?
   q3            DateTime?
   createdAt     DateTime
   updatedAt     DateTime
-  Constructor   Constructor? @relation(fields: [constructorId], references: [id])
-  Driver        Driver?      @relation(fields: [driverId], references: [id])
-  Race          Race?        @relation(fields: [raceId], references: [id])
+  Constructor   Constructor @relation(fields: [constructorId], references: [id])
+  Driver        Driver      @relation(fields: [driverId], references: [id])
+  Race          Race        @relation(fields: [raceId], references: [id])
 }
 
 model Race {
   id                  Int                   @id
-  year                Int?
-  round               Int?
-  circuitId           Int?
-  name                String?
-  date                DateTime?
+  year                Int
+  round               Int
+  circuitId           Int
+  name                String
+  date                DateTime
   time                DateTime?
-  url                 String?
+  url                 String
   createdAt           DateTime
   updatedAt           DateTime
-  Circuit             Circuit?              @relation(fields: [circuitId], references: [id])
+  Circuit             Circuit               @relation(fields: [circuitId], references: [id])
   ConstructorResult   ConstructorResult[]
   ConstructorStanding ConstructorStanding[]
   DriverStanding      DriverStanding[]
@@ -153,30 +153,30 @@ model Race {
 }
 
 model RaceResult {
-  id              Int          @id
-  raceId          Int?
-  driverId        Int?
-  constructorId   Int?
+  id              Int         @id
+  raceId          Int
+  driverId        Int
+  constructorId   Int
   number          Int?
   grid            Int?
   position        Int?
-  positionText    String?
-  positionOrder   Int?
-  points          Int?
-  laps            Int?
+  positionText    String
+  positionOrder   Int
+  points          Int
+  laps            Int
   time            String?
   milliseconds    Int?
   fastestLap      Int?
   fastestLapRank  Int?
   fastestLapTime  DateTime?
   fastestLapSpeed Float?
-  statusId        Int?
+  statusId        Int
   createdAt       DateTime
   updatedAt       DateTime
-  Constructor     Constructor? @relation(fields: [constructorId], references: [id])
-  Driver          Driver?      @relation(fields: [driverId], references: [id])
-  Race            Race?        @relation(fields: [raceId], references: [id])
-  Status          Status?      @relation(fields: [statusId], references: [id])
+  Constructor     Constructor @relation(fields: [constructorId], references: [id])
+  Driver          Driver      @relation(fields: [driverId], references: [id])
+  Race            Race        @relation(fields: [raceId], references: [id])
+  Status          Status      @relation(fields: [statusId], references: [id])
 }
 
 model Season {
@@ -189,7 +189,7 @@ model Season {
 
 model Status {
   id                Int                 @id
-  status            String?
+  status            String
   createdAt         DateTime
   updatedAt         DateTime
   ConstructorResult ConstructorResult[]
@@ -197,15 +197,15 @@ model Status {
 }
 
 model ConstructorStanding {
-  id            Int          @id
-  raceId        Int?
-  constructorId Int?
-  points        Int?
-  position      Int?
-  positionText  String?
-  wins          Int?
+  id            Int         @id
+  raceId        Int
+  constructorId Int
+  points        Int
+  position      Int
+  positionText  String
+  wins          Int
   createdAt     DateTime
   updatedAt     DateTime
-  Constructor   Constructor? @relation(fields: [constructorId], references: [id])
-  Race          Race?        @relation(fields: [raceId], references: [id])
+  Constructor   Constructor @relation(fields: [constructorId], references: [id])
+  Race          Race        @relation(fields: [raceId], references: [id])
 }
