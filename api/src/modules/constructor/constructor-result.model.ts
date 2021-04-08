@@ -6,14 +6,14 @@ export class ConstructorResultModel {
   id: number;
 
   @Field()
-  raceId: number;
+  raceId: number | null;
 
   @Field()
-  constructorId: number;
+  constructorId: number | null;
 
   @Field()
-  points: number;
+  points: number | null;
 
   @Field()
-  statusId: number;
+  statusId: number | null;
 }
