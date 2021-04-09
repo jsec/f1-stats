@@ -10,4 +10,12 @@ export class SeasonService {
   public async findAll(): Promise<Season[]> {
     return this.prisma.season.findMany();
   }
+
+  public async findById(id: number): Promise<Season | null> {
+    return this.prisma.season.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }

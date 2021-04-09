@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 
 import { PrismaService } from '../../core';
-import { CircuitController } from './circuit.controller';
+import { CircuitResolver } from './circuit.resolver';
 import { CircuitService } from './circuit.service';
 
 @Module({
-  controllers: [CircuitController],
-  providers: [ CircuitService, PrismaService ]
+  providers: [ CircuitResolver, CircuitService, PrismaService ]
 })
 export class CircuitModule {}

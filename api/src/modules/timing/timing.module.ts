@@ -1,19 +1,21 @@
 import { Module } from '@nestjs/common';
 
 import { PrismaService } from '../../core';
-import { LapTimeController } from './lap-time.controller';
+import { LapTimeResolver } from './lap-time.resolver';
 import { LapTimeService } from './lap-time.service';
-import { PitStopController } from './pit-stop.controller';
+import { PitStopResolver } from './pit-stop.resolver';
 import { PitStopService } from './pit-stop.service';
-import { QualificationController } from './qualification.controller';
+import { QualificationResolver } from './qualification.resolver';
 import { QualificationService } from './qualification.service';
 
 @Module({
-  controllers: [ LapTimeController, PitStopController, QualificationController ],
   providers: [
+    LapTimeResolver,
     LapTimeService,
+    PitStopResolver,
     PitStopService,
     PrismaService,
+    QualificationResolver,
     QualificationService
   ]
 })

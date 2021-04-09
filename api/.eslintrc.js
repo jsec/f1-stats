@@ -5,10 +5,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'simple-import-sort'],
-  extends: [
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended'
-  ],
+  extends: ['plugin:@typescript-eslint/eslint-recommended', 'plugin:@typescript-eslint/recommended'],
   root: true,
   env: {
     node: true,
@@ -41,11 +38,16 @@ module.exports = {
         minItems: 4
       }
     ],
-    'object-property-newline': 'warn',
+    'max-len': [
+      'warn',
+      {
+        code: 120
+      }
+    ],
     'object-curly-newline': [
       'warn',
       {
-        ObjectExpression: 'always',
+        ObjectExpression: 'never',
         ObjectPattern: 'never',
         ImportDeclaration: { multiline: true, minProperties: 4 },
         ExportDeclaration: { multiline: true, minProperties: 4 }

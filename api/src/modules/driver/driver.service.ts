@@ -10,4 +10,12 @@ export class DriverService {
   public async findAll(): Promise<Driver[]> {
     return this.prisma.driver.findMany();
   }
+
+  public async findById(id: number): Promise<Driver | null> {
+    return this.prisma.driver.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }

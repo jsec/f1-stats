@@ -10,4 +10,12 @@ export class LapTimeService {
   public async findAll(): Promise<LapTime[]> {
     return this.prisma.lapTime.findMany();
   }
+
+  public async findById(id: number): Promise<LapTime | null> {
+    return this.prisma.lapTime.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }

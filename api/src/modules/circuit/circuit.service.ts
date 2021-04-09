@@ -10,4 +10,12 @@ export class CircuitService {
   public async findAll(): Promise<Circuit[]> {
     return this.prisma.circuit.findMany();
   }
+
+  public async findById(id: number): Promise<Circuit | null> {
+    return this.prisma.circuit.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }

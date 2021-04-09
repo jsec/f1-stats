@@ -10,4 +10,12 @@ export class ConstructorService {
   public async findAll(): Promise<Constructor[]> {
     return this.prisma.constructor.findMany();
   }
+
+  public async findById(id: number): Promise<Constructor | null> {
+    return this.prisma.constructor.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }
