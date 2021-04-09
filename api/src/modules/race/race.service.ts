@@ -10,4 +10,12 @@ export class RaceService {
   public async findAll(): Promise<Race[]> {
     return this.prisma.race.findMany();
   }
+
+  public async findById(id: number): Promise<Race | null> {
+    return this.prisma.race.findFirst({
+      where: {
+        id: id
+      }
+    });
+  }
 }

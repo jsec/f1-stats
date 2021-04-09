@@ -1,13 +1,18 @@
 import { Module } from '@nestjs/common';
 
 import { PrismaService } from '../../core';
-import { RaceController } from './race.controller';
+import { RaceResolver } from './race.resolver';
 import { RaceService } from './race.service';
-import { RaceResultController } from './race-result.controller';
+import { RaceResultResolver } from './race-result.resolver';
 import { RaceResultService } from './race-result.service';
 
 @Module({
-  controllers: [ RaceController, RaceResultController ],
-  providers: [ PrismaService, RaceService, RaceResultService ]
+  providers: [
+PrismaService,
+RaceResolver,
+RaceService,
+RaceResultResolver,
+RaceResultService
+]
 })
 export class RaceModule {}
