@@ -2,12 +2,159 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type CircuitModel {
+  alt: String!
+  country: String!
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  ref: String!
+  url: String!
+}
+
+type ConstructorModel {
+  id: ID!
+  name: String!
+  nationality: String!
+  ref: String!
+  url: String!
+}
+
+type ConstructorResultModel {
+  constructorId: Int
+  id: ID!
+  points: Int
+  raceId: Int
+  statusId: Int
+}
+
+type ConstructorStandingModel {
+  constructorId: Float!
+  id: ID!
+  points: Float!
+  position: Float!
+  positionText: String!
+  raceId: Float!
+  wins: Float!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type DriverModel {
+  code: String!
+  dob: DateTime!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  nationality: String!
+  number: Int
+  ref: String!
+  url: String!
+}
+
+type DriverStandingModel {
+  constructorId: Int
+  driverId: Float!
+  id: ID!
+  points: Float!
+  position: Float!
+  positionText: String!
+  raceId: Float!
+  wins: Float!
+}
+
+type LapTimeModel {
+  driverId: Float!
+  id: ID!
+  lap: Float!
+  milliseconds: Float!
+  position: Float!
+  raceId: Float!
+  time: DateTime!
+}
+
+type PitStopModel {
+  driverId: Float!
+  duration: Float!
+  id: ID!
+  lap: Float!
+  milliseconds: Float!
+  raceId: Float!
+  stop: Float!
+  time: DateTime!
+}
+
+type QualificationModel {
+  constructorId: Float!
+  driverId: Float!
+  id: ID!
+  number: Float!
+  position: Float!
+  q1: DateTime
+  q2: DateTime
+  q3: DateTime
+  raceId: Float!
+}
+
 type Query {
+  circuit(id: Float!): CircuitModel!
+  constructorstanding(id: Float!): ConstructorStandingModel!
+  driver(id: Float!): DriverModel!
+  getConstructor(id: Float!): ConstructorModel!
+  getConstructorResult(id: Float!): ConstructorResultModel!
+  getDriverStanding(id: Float!): DriverStandingModel!
+  lapTime(id: Float!): LapTimeModel!
+  pitStop(id: Float!): PitStopModel!
+  qualification(id: Float!): QualificationModel!
+  race(id: Float!): RaceModel!
+  raceResult(id: Float!): RaceResultModel!
   season(id: Float!): SeasonModel!
+  status(id: Float!): StatusModel!
+}
+
+type RaceModel {
+  circuitId: Float!
+  date: DateTime!
+  id: ID!
+  name: String!
+  round: Float!
+  time: DateTime
+  url: String!
+  year: Float!
+}
+
+type RaceResultModel {
+  constructorId: Float!
+  driverId: Float!
+  fastestLap: Int
+  fastestLapRank: Int
+  fastestLapSpeed: Int
+  fastestLapTime: DateTime
+  grid: Int
+  id: ID!
+  laps: Float!
+  milliseconds: Int
+  number: Int
+  points: Float!
+  position: Int
+  positionOrder: Float!
+  positionText: String!
+  raceId: Float!
+  statusId: Float!
+  time: String
 }
 
 type SeasonModel {
   id: ID!
   url: String!
   year: Float!
+}
+
+type StatusModel {
+  id: ID!
+  status: String!
 }

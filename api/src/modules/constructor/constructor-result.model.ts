@@ -1,19 +1,21 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import {
+ Field, ID, Int, ObjectType
+} from '@nestjs/graphql';
 
 @ObjectType()
 export class ConstructorResultModel {
   @Field(type => ID)
   id: number;
 
-  @Field()
-  raceId: number | null;
+  @Field(() => Int, { nullable: true })
+  raceId?: number | null;
 
-  @Field()
-  constructorId: number | null;
+  @Field(() => Int, { nullable: true })
+  constructorId?: number | null;
 
-  @Field()
-  points: number | null;
+  @Field(() => Int, { nullable: true })
+  points?: number | null;
 
-  @Field()
-  statusId: number | null;
+  @Field(() => Int, { nullable: true })
+  statusId?: number | null;
 }

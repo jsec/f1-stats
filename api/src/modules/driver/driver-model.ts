@@ -1,4 +1,6 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import {
+ Field, ID, Int, ObjectType
+} from '@nestjs/graphql';
 
 @ObjectType()
 export class DriverModel {
@@ -8,8 +10,8 @@ export class DriverModel {
   @Field()
   ref: string;
 
-  @Field()
-  number: number | null;
+  @Field(() => Int, { nullable: true })
+  number?: number | null;
 
   @Field()
   code: string;

@@ -1,4 +1,6 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import {
+ Field, ID, Int, ObjectType
+} from '@nestjs/graphql';
 
 @ObjectType()
 export class RaceResultModel {
@@ -14,14 +16,14 @@ export class RaceResultModel {
   @Field()
   constructorId: number;
 
-  @Field()
-  number: number | null;
+  @Field(() => Int, { nullable: true })
+  number?: number | null;
 
-  @Field()
-  grid: number | null;
+  @Field(() => Int, { nullable: true })
+  grid?: number | null;
 
-  @Field()
-  position: number | null;
+  @Field(() => Int, { nullable: true })
+  position?: number | null;
 
   @Field()
   positionText: string;
@@ -35,23 +37,23 @@ export class RaceResultModel {
   @Field()
   laps: number;
 
-  @Field()
-  time: string | null;
+  @Field(() => String, { nullable: true })
+  time?: string | null;
 
-  @Field()
-  milliseconds: number | null;
+  @Field(() => Int, { nullable: true })
+  milliseconds?: number | null;
 
-  @Field()
-  fastestLap: number | null;
+  @Field(() => Int, { nullable: true })
+  fastestLap?: number | null;
 
-  @Field()
-  fastestLapRank: number | null;
+  @Field(() => Int, { nullable: true })
+  fastestLapRank?: number | null;
 
-  @Field()
-  fastestLapTime: Date | null;
+  @Field(() => Date, { nullable: true })
+  fastestLapTime?: Date | null;
 
-  @Field()
-  fastestLapSpeed: number | null;
+  @Field(() => Int, { nullable: true })
+  fastestLapSpeed?: number | null;
 
   @Field()
   statusId: number;

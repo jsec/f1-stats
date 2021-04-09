@@ -5,6 +5,7 @@ import { ConstructorResolver } from './constructor.resolver';
 import { ConstructorService } from './constructor.service';
 import { ConstructorResultResolver } from './constructor-result.resolver';
 import { ConstructorResultService } from './constructor-result.service';
+import { ConstructorStandingResolver } from './constructor-standing.resolver';
 import { ConstructorStandingService } from './constructor-standing.service';
 
 @Module({
@@ -13,6 +14,7 @@ import { ConstructorStandingService } from './constructor-standing.service';
     ConstructorService,
     ConstructorResultResolver,
     ConstructorResultService,
+    ConstructorStandingResolver,
     ConstructorStandingService,
     PrismaService
   ]

@@ -20,12 +20,12 @@ export class QualificationModel {
   @Field()
   position: number;
 
-  @Field()
+  @Field(() => Date, { nullable: true })
   q1: Date | null;
 
-  @Field()
+  @Field(() => Date, { nullable: true })
   q2: Date | null;
 
-  @Field()
+  @Field(() => Date, { nullable: true })
   q3: Date | null;
 }

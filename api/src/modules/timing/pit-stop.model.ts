@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-ObjectType();
+@ObjectType()
 export class PitStopModel {
   @Field(type => ID)
   id: number;

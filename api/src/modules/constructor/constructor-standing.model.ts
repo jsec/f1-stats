@@ -1,9 +1,7 @@
-import {
- Field, ID, Int, ObjectType
-} from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class DriverStandingModel {
+export class ConstructorStandingModel {
   @Field(type => ID)
   id: number;
 
@@ -11,10 +9,7 @@ export class DriverStandingModel {
   raceId: number;
 
   @Field()
-  driverId: number;
-
-  @Field(() => Int, { nullable: true })
-  constructorId: number | null;
+  constructorId: number;
 
   @Field()
   points: number;

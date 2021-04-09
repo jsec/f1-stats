@@ -20,8 +20,8 @@ export class RaceModel {
   @Field()
   date: Date;
 
-  @Field()
-  time: Date | null;
+  @Field(() => Date, { nullable: true })
+  time?: Date | null;
 
   @Field()
   url: string;
