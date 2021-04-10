@@ -48,9 +48,9 @@ module.exports = {
       'warn',
       {
         ObjectExpression: 'never',
-        ObjectPattern: 'never',
-        ImportDeclaration: { multiline: true, minProperties: 4 },
-        ExportDeclaration: { multiline: true, minProperties: 4 }
+        ObjectPattern: { multiline: true, minProperties: 3 },
+        ImportDeclaration: { multiline: true, minProperties: 3 },
+        ExportDeclaration: { multiline: true, minProperties: 3 }
       }
     ],
     'no-trailing-spaces': 'warn'

@@ -8,8 +8,7 @@ import { ConstructorResultService } from './constructor-result.service';
 import { ConstructorStandingResolver } from './constructor-standing.resolver';
 import { ConstructorStandingService } from './constructor-standing.service';
 
-@Module({
-  providers: [
+@Module({providers: [
     ConstructorResolver,
     ConstructorService,
     ConstructorResultResolver,
@@ -17,6 +16,5 @@ import { ConstructorStandingService } from './constructor-standing.service';
     ConstructorStandingResolver,
     ConstructorStandingService,
     PrismaService
-  ]
-})
+  ]})
 export class ConstructorModule {}
