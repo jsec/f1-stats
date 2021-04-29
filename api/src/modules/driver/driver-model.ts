@@ -1,10 +1,13 @@
 import {
- Field, ID, Int, ObjectType
+  Field,
+  ID,
+  Int,
+  ObjectType
 } from '@nestjs/graphql';
 
 @ObjectType()
 export class DriverModel {
-  @Field(type => ID)
+  @Field((type) => ID)
   id: number;
 
   @Field()

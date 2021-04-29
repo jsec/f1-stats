@@ -1,5 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Query,
+  Resolver
+} from '@nestjs/graphql';
 
 import { CircuitModel } from './circuit.model';
 import { CircuitService } from './circuit.service';
@@ -8,7 +12,7 @@ import { CircuitService } from './circuit.service';
 export class CircuitResolver {
   constructor(private circuitService: CircuitService) {}
 
-  @Query(returns => CircuitModel)
+  @Query((returns) => CircuitModel)
   public async circuit(@Args('id') id: number): Promise<CircuitModel> {
     const circuit = await this.circuitService.findById(id);
     if (!circuit) throw new NotFoundException(id);

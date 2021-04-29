@@ -1,5 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Query,
+  Resolver
+} from '@nestjs/graphql';
 
 import { QualificationModel } from './qualification.model';
 import { QualificationService } from './qualification.service';
@@ -8,7 +12,7 @@ import { QualificationService } from './qualification.service';
 export class QualificationResolver {
   constructor(private qualificationService: QualificationService) {}
 
-  @Query(returns => QualificationModel)
+  @Query((returns) => QualificationModel)
   public async qualification(@Args('id') id: number): Promise<QualificationModel> {
     const qualification = await this.qualificationService.findById(id);
     if (!qualification) throw new NotFoundException(id);

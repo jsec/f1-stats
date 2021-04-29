@@ -1,10 +1,13 @@
 import {
- Field, ID, Int, ObjectType
+  Field,
+  ID,
+  Int,
+  ObjectType
 } from '@nestjs/graphql';
 
 @ObjectType()
 export class ConstructorResultModel {
-  @Field(type => ID)
+  @Field((type) => ID)
   id: number;
 
   @Field(() => Int, { nullable: true })

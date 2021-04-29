@@ -1,5 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Query,
+  Resolver
+} from '@nestjs/graphql';
 
 import { SeasonModel } from './season.model';
 import { SeasonService } from './season.service';
@@ -8,7 +12,7 @@ import { SeasonService } from './season.service';
 export class SeasonResolver {
   constructor(private seasonService: SeasonService) {}
 
-  @Query(returns => SeasonModel)
+  @Query((returns) => SeasonModel)
   public async season(@Args('id') id: number): Promise<SeasonModel> {
     const season = await this.seasonService.findById(id);
     if (!season) throw new NotFoundException(id);

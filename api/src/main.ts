@@ -8,4 +8,5 @@ async function bootstrap() {
 }
 
 require('dotenv').config();
+
 bootstrap();

@@ -1,5 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Query,
+  Resolver
+} from '@nestjs/graphql';
 
 import { RaceModel } from './race.model';
 import { RaceService } from './race.service';
@@ -8,7 +12,7 @@ import { RaceService } from './race.service';
 export class RaceResolver {
   constructor(private raceService: RaceService) {}
 
-  @Query(returns => RaceModel)
+  @Query((returns) => RaceModel)
   public async race(@Args('id') id: number): Promise<RaceModel> {
     const race = await this.raceService.findById(id);
     if (!race) throw new NotFoundException(id);

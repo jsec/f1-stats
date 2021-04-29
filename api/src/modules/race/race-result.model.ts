@@ -1,10 +1,13 @@
 import {
- Field, ID, Int, ObjectType
+  Field,
+  ID,
+  Int,
+  ObjectType
 } from '@nestjs/graphql';
 
 @ObjectType()
 export class RaceResultModel {
-  @Field(type => ID)
+  @Field((type) => ID)
   id: number;
 
   @Field()
