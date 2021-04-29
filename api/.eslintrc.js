@@ -5,11 +5,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'simple-import-sort', 'modules-newline'],
-  extends: [
-    //'plugin:@typescript-eslint/eslint-recommended',
-    //'plugin:@typescript-eslint/recommended',
-    'airbnb-typescript'
-  ],
+  extends: ['airbnb-typescript'],
   root: true,
   env: {
     node: true,
@@ -32,6 +28,8 @@ module.exports = {
       }
     ],
     'object-shorthand': 'off',
+    'simple-import-sort/imports': 'warn',
+    'simple-import-sort/exports': 'warn',
     '@typescript-eslint/comma-dangle': 'off'
   }
 };
