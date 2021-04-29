@@ -5,7 +5,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'simple-import-sort', 'modules-newline'],
-  extends: ['airbnb-typescript'],
+  extends: ['airbnb-typescript/base'],
   root: true,
   env: {
     node: true,
@@ -19,8 +19,10 @@ module.exports = {
         singleValue: false
       }
     ],
+    'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'modules-newline/import-declaration-newline': 'warn',
+    'multiline-ternary': ['warn', 'always'],
     'object-curly-newline': [
       'warn',
       {
@@ -28,6 +30,7 @@ module.exports = {
       }
     ],
     'object-shorthand': 'off',
+    'operator-linebreak': ['warn', 'after', { overrides: { '?': 'before', ':': 'before' } }],
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
     '@typescript-eslint/comma-dangle': 'off'
