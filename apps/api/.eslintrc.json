@@ -1,18 +1,16 @@
 {
-  "extends": ["../../.eslintrc.json"],
+  "extends": ["../../.eslintrc.json", "airbnb/base", "airbnb-typescript/base", "prettier"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {}
-    },
-    {
       "files": ["*.ts", "*.tsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "rules": {}
+      "parserOptions": {
+        "project": ["apps/api/tsconfig.*?.json"]
+      },
+      "rules": {
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off"
+      }
     }
   ]
 }
