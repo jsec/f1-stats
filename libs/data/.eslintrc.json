@@ -1,0 +1,13 @@
+{
+  "extends": ["../../.eslintrc.json", "airbnb/base", "airbnb-typescript/base"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/api/tsconfig.*?.json"]
+      },
+      "rules": {}
+    }
+  ]
+}
