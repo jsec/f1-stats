@@ -1,4 +1,4 @@
-import { BaseModel } from "./base.model";
+import { BaseModel } from './base.model';
 
 export class ConstructorStanding extends BaseModel {
   standing_id: number;

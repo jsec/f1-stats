@@ -1,4 +1,4 @@
-import { BaseModel } from "./base.model";
+import { BaseModel } from './base.model';
 
 export class Qualifying extends BaseModel {
   qualifying_id: number;

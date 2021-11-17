@@ -5,7 +5,12 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "lint": "nx lint",
+    "migrate": "knex --knexfile libs/data/knexfile.ts migrate:latest",
+    "migrate:make": "knex --knexfile libs/data/knexfile.ts migrate:make -- -x ts",
+    "seed": "knex --knexfile libs/data/knexfile.ts seed:run",
+    "seed:make": "knex --knexfile libss/data/knexfile.ts seed:make -- -x ts"
   },
   "private": true,
   "dependencies": {

@@ -5,9 +5,13 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["apps/api/tsconfig.*?.json"]
+        "project": ["libs/data/tsconfig.*?.json"]
       },
-      "rules": {}
+      "rules": {
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "@typescript-eslint/lines-between-class-members": "off"
+      }
     }
   ]
 }
