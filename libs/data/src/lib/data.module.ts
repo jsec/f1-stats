@@ -15,7 +15,21 @@ import { RaceModel } from './models/race.model';
 import { SeasonModel } from './models/season.model';
 import { Status } from './models/status.model';
 
-const models = [Circuit, Constructor, ConstructorResult, ConstructorStanding, DriverModel, DriverStanding, LapTime, PitStop, Qualifying, RaceModel, RaceResult, SeasonModel, Status];
+const models = [
+  Circuit,
+  Constructor,
+  ConstructorResult,
+  ConstructorStanding,
+  DriverModel,
+  DriverStanding,
+  LapTime,
+  PitStop,
+  Qualifying,
+  RaceModel,
+  RaceResult,
+  SeasonModel,
+  Status
+];
 
 const modelProviders = models.map(model => {
   return {

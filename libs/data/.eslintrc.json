@@ -1,5 +1,5 @@
 {
-  "extends": ["../../.eslintrc.json", "airbnb/base", "airbnb-typescript/base"],
+  "extends": ["../../.eslintrc.json", "airbnb/base", "airbnb-typescript/base", "plugin:prettier/recommended"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {

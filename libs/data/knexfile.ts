@@ -1,5 +1,5 @@
-import { Knex } from "knex";
-import { knexSnakeCaseMappers } from "objection";
+import { Knex } from 'knex';
+import { knexSnakeCaseMappers } from 'objection';
 
 module.exports = {
   client: 'pg',
@@ -14,4 +14,3 @@ module.exports = {
   },
   ...knexSnakeCaseMappers
 } as Knex.Config;
-
