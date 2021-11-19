@@ -1,33 +1,35 @@
 import { Module } from '@nestjs/common';
 import * as Knex from 'knex';
 import { knexSnakeCaseMappers, Model } from 'objection';
-import { Circuit } from './models/circuit.model';
-import { ConstructorResult } from './models/constructor-result.model';
-import { ConstructorStanding } from './models/constructor-standing.model';
-import { Constructor } from './models/constructor.model';
-import { DriverModel } from './models/driver.model';
-import { DriverStanding } from './models/driver_standing.model';
-import { LapTime } from './models/lap-time.model';
-import { PitStop } from './models/pit-stop.model';
-import { Qualifying } from './models/qualifying.model';
-import { RaceResult } from './models/race-result.model';
-import { RaceModel } from './models/race.model';
-import { SeasonModel } from './models/season.model';
-import { Status } from './models/status.model';
+import {
+  Circuit,
+  Constructor,
+  ConstructorResult,
+  ConstructorStanding,
+  Driver,
+  DriverStanding,
+  LapTime,
+  PitStop,
+  Qualifying,
+  Race,
+  RaceResult,
+  Season,
+  Status
+} from './models';
 
 const models = [
   Circuit,
   Constructor,
   ConstructorResult,
   ConstructorStanding,
-  DriverModel,
+  Driver,
   DriverStanding,
   LapTime,
   PitStop,
   Qualifying,
-  RaceModel,
+  Race,
   RaceResult,
-  SeasonModel,
+  Season,
   Status
 ];
 

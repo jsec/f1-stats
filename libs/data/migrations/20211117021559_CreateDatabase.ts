@@ -3,7 +3,7 @@ import { Knex } from 'knex';
 const tableName = '';
 
 export async function up(knex: Knex) {
-  return knex.schema.createTable(tableName, (t) => {
+  return knex.schema.createTable(tableName, t => {
     t.increments();
   });
 }

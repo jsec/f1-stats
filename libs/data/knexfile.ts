@@ -1,5 +1,9 @@
 import { Knex } from 'knex';
 import { knexSnakeCaseMappers } from 'objection';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 
 module.exports = {
   client: 'pg',

@@ -1,6 +1,6 @@
 import { BaseModel } from './base.model';
 
-export class DriverModel extends BaseModel {
+export class Driver extends BaseModel {
   driver_id: number;
   driver_ref: string;
   number: number;

@@ -1,6 +1,6 @@
 import { BaseModel } from './base.model';
 
-export class RaceModel extends BaseModel {
+export class Race extends BaseModel {
   race_id: number;
   year: number;
   round: number;

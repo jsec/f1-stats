@@ -1,6 +1,6 @@
 import { BaseModel } from './base.model';
 
-export class SeasonModel extends BaseModel {
+export class Season extends BaseModel {
   year: number;
   url: string;
 
