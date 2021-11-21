@@ -1,11 +1,12 @@
 import { Knex } from 'knex';
-import { v4 as uuidv4 } from 'uuid';
 
-const tableName = '';
+const tableName = 'status';
 
 export async function up(knex: Knex) {
   return knex.schema.createTable(tableName, t => {
-    t.uuid('id').notNullable().defaultTo(uuidv4());
+    t.uuid('id').notNullable();
+    t.integer('status_id').notNullable();
+    t.string('status').notNullable();
   });
 }
 

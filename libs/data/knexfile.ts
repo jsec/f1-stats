@@ -1,20 +1,20 @@
 import { Knex } from 'knex';
 import { knexSnakeCaseMappers } from 'objection';
 import * as dotenv from 'dotenv';
+import { resolve } from 'path';
 
-dotenv.config();
-
+dotenv.config({ path: resolve(__dirname, '../../.env') });
 
 module.exports = {
   client: 'pg',
   connection: process.env.DATABASE_URL,
   migrations: {
-    directory: 'migrations',
-    stub: 'migrations/migration.stub.ts'
+    directory: 'db/migrations',
+    stub: 'db/migration.stub.ts'
   },
   seeds: {
-    directory: 'seeds',
-    stub: 'seeds/seed.stub.ts'
+    directory: 'db/seeds',
+    stub: 'db/seed.stub.ts'
   },
   ...knexSnakeCaseMappers
 } as Knex.Config;

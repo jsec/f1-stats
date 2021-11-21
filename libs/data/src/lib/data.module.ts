@@ -63,4 +63,4 @@ const providers = [
   providers: [...providers],
   exports: [...providers]
 })
-export class DataModule { }
+export class DataModule {}
