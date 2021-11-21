@@ -1,10 +1,11 @@
-import { Knex } from "knex";
+import { Knex } from 'knex';
+import { v4 as uuidv4 } from 'uuid';
 
 const tableName = '';
 
 export async function up(knex: Knex) {
   return knex.schema.createTable(tableName, t => {
-    t.increments();
+    t.uuid('id').notNullable().defaultTo(uuidv4());
   });
 }
 
