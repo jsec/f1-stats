@@ -5,9 +5,12 @@ const tableName = 'race';
 export async function up(knex: Knex) {
   return knex.schema.createTable(tableName, t => {
     t.uuid('id').notNullable();
-    t.integer('race_id').notNullable();
+    t.integer('race_id').unique().notNullable();
     t.integer('round').notNullable();
-    t.integer('circuit_id').references('circuit_id').inTable('circuit').notNullable();
+    t.integer('circuit_id')
+      .references('circuit_id')
+      .inTable('circuit')
+      .notNullable();
     t.string('name').notNullable();
     t.date('date').notNullable();
     t.time('time').notNullable();

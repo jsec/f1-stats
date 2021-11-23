@@ -5,7 +5,7 @@ const tableName = 'circuit';
 export async function up(knex: Knex) {
   return knex.schema.createTable(tableName, t => {
     t.uuid('id').notNullable();
-    t.integer('circuit_id').notNullable();
+    t.integer('circuit_id').notNullable().unique();
     t.string('circuit_ref').notNullable();
     t.string('name').notNullable();
     t.string('location').notNullable();

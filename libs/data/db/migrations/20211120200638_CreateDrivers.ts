@@ -5,7 +5,7 @@ const tableName = 'driver';
 export async function up(knex: Knex) {
   return knex.schema.createTable(tableName, t => {
     t.uuid('id').notNullable();
-    t.integer('driver_id').notNullable();
+    t.integer('driver_id').unique().notNullable();
     t.string('driver_ref').notNullable();
     t.integer('number').notNullable();
     t.string('code').notNullable();
