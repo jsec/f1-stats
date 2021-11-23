@@ -12,7 +12,8 @@
     "migrate:make": "yarn knex migrate:make -x ts",
     "rollback": "yarn knex migrate:rollback",
     "seed": "yarn knex seed:run",
-    "seed:make": "yarn knex seed:make -x ts"
+    "seed:make": "yarn knex seed:make -x ts",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -50,8 +51,10 @@
     "eslint-config-airbnb-typescript": "^14.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
+    "husky": "^7.0.0",
     "jest": "27.2.3",
     "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.2",
     "ts-jest": "27.0.5",
     "typescript": "~4.3.5"
   }
