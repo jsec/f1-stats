@@ -3,6 +3,7 @@ import { parse } from 'csv-parse';
 import { finished } from 'stream/promises';
 import { resolve } from 'path';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export async function loadData(
   filename: string,
   callback: (records: any[]) => any[]
@@ -19,6 +20,8 @@ export async function loadData(
 
     parser.on('readable', () => {
       let record: any;
+
+      // eslint-disable-next-line  no-cond-assign
       while ((record = parser.read()) !== null) {
         records.push(record);
       }
