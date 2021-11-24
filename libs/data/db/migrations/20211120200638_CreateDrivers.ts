@@ -1,4 +1,4 @@
-import { Knex } from "knex";
+import { Knex } from 'knex';
 
 const tableName = 'driver';
 
@@ -7,8 +7,8 @@ export async function up(knex: Knex) {
     t.uuid('id').notNullable();
     t.integer('driver_id').unique().notNullable();
     t.string('driver_ref').notNullable();
-    t.integer('number').notNullable();
-    t.string('code').notNullable();
+    t.integer('number');
+    t.string('code');
     t.string('first_name').notNullable();
     t.string('last_name').notNullable();
     t.date('date_of_birth').notNullable();

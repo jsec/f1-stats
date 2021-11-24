@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import * as Knex from 'knex';
+/* import { knex } from 'knex';
 import { knexSnakeCaseMappers, Model } from 'objection';
 import {
   Circuit,
@@ -15,9 +15,9 @@ import {
   RaceResult,
   Season,
   Status
-} from './models';
+} from './models'; */
 
-const models = [
+/* const models = [
   Circuit,
   Constructor,
   ConstructorResult,
@@ -31,9 +31,9 @@ const models = [
   RaceResult,
   Season,
   Status
-];
+]; */
 
-const modelProviders = models.map(model => {
+/* const modelProviders = models.map(model => {
   return {
     provide: model.name,
     useValue: model
@@ -45,22 +45,22 @@ const providers = [
   {
     provide: 'KnexConnection',
     useFactory: async () => {
-      const knex = Knex({
+      const conn = knex({
         client: 'pg',
         connection: process.env.DATABASE_URL,
         debug: process.env.KNEX_DEBUG === 'true',
         ...knexSnakeCaseMappers()
       });
 
-      Model.knex(knex);
-      return knex;
+      Model.knex(conn);
+      return conn;
     }
   }
-];
+]; */
 
 @Module({
   controllers: [],
-  providers: [...providers],
-  exports: [...providers]
+  providers: [],
+  exports: []
 })
 export class DataModule {}
