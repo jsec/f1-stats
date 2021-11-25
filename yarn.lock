@@ -1228,6 +1228,11 @@
     "@webassemblyjs/ast" "1.11.1"
     "@xtuc/long" "4.2.2"
 
+"@willsoto/nestjs-objection@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@willsoto/nestjs-objection/-/nestjs-objection-6.1.0.tgz#c4eb26570d18f07137c9995467256376e4d9bea5"
+  integrity sha512-cfWTBVizvmcCRpGLOOoXuPaQr1tJBuLR06YbxUkHioC8MwHWTNCb8itfSkD2h8IHLZJ1y4VNSiRlKItUx2T1Ig==
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
