@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "../../.eslintrc.json",
+    "airbnb/base",
+    "airbnb-typescript/base",
+    "prettier"
+  ],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["libs/data/tsconfig.*?.json"]
+      },
+      "rules": {
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "@typescript-eslint/lines-between-class-members": "off"
+      }
+    }
+  ]
+}
