@@ -7,13 +7,19 @@ export async function up(knex: Knex) {
     t.uuid('id').notNullable();
     t.integer('qualifying_id').notNullable();
     t.integer('race_id').notNullable().references('race_id').inTable('race');
-    t.integer('driver_id').notNullable().references('driver_id').inTable('driver');
-    t.integer('constructor_id').notNullable().references('constructor_id').inTable('constructor');
+    t.integer('driver_id')
+      .notNullable()
+      .references('driver_id')
+      .inTable('driver');
+    t.integer('constructor_id')
+      .notNullable()
+      .references('constructor_id')
+      .inTable('constructor');
     t.integer('number').notNullable();
     t.integer('position').notNullable();
-    t.time('q1').notNullable();
-    t.time('q2').notNullable();
-    t.time('q3').notNullable();
+    t.time('q1');
+    t.time('q2');
+    t.time('q3');
   });
 }
 
