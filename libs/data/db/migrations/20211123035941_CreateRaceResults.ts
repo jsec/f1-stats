@@ -15,12 +15,23 @@ export async function up(knex: Knex) {
       .notNullable()
       .references('constructor_id')
       .inTable('constructor');
-    t.integer('number').notNullable();
+    t.integer('number');
     t.integer('grid').notNullable();
-    t.integer('position').notNullable();
+    t.integer('position');
     t.string('position_text').notNullable();
     t.integer('position_order').notNullable();
     t.integer('points').notNullable();
+    t.integer('laps').notNullable();
+    t.string('time');
+    t.bigInteger('milliseconds');
+    t.integer('fastest_lap');
+    t.integer('rank');
+    t.time('fastest_lap_time');
+    t.double('fastest_lap_speed');
+    t.integer('status_id')
+      .notNullable()
+      .references('status_id')
+      .inTable('status');
   });
 }
 

@@ -11,6 +11,14 @@ export class RaceResult extends BaseModel {
   position_text: string;
   position_order: number;
   points: number;
+  laps: number;
+  time: string;
+  milliseconds: number;
+  fastest_lap: number;
+  rank: number;
+  fastest_lap_time: string;
+  fastest_lap_speed: number;
+  status_id: number;
 
   static tableName = 'race_result';
 }

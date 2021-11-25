@@ -35,6 +35,10 @@ export async function loadData(
   return records;
 }
 
+function getEscapedValue(value: string): string {
+  return !value || value === '\\N' ? null : value;
+}
+
 // CSV files that serve as the data source include '\\N', for null values.
 // This function turns them back into nulls.
 export function handleEscapedNulls(
@@ -46,4 +50,16 @@ export function handleEscapedNulls(
   if (isNumber) return parsedValue ? parseInt(parsedValue, 10) : null;
 
   return parsedValue;
+}
+
+export function handleNullEscapedInt(value: string): number {
+  const parsedValue = getEscapedValue(value);
+
+  return parsedValue ? parseInt(parsedValue, 10) : null;
+}
+
+export function handleNullEscapedFloat(value: string): number {
+  const parsedValue = getEscapedValue(value);
+
+  return parsedValue ? parseFloat(parsedValue) : null;
 }
