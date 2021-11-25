@@ -12,7 +12,7 @@ export async function up(knex: Knex) {
       .references('constructor_id')
       .inTable('constructor');
     t.double('points').notNullable();
-    t.string('status').notNullable();
+    t.string('status');
   });
 }
 
