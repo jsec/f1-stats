@@ -3,7 +3,7 @@ import { v4 } from 'uuid';
 import { loadData } from '../utils/seed.util';
 
 export async function seed(knex: Knex): Promise<void> {
-  await knex('season').truncate();
+  await knex('season').delete();
 
   const records = await loadData('seasons.csv', data =>
     data.map(r => ({
