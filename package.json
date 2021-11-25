@@ -49,6 +49,7 @@
     "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "~4.33.0",
     "@typescript-eslint/parser": "~4.33.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.1",
@@ -65,5 +66,10 @@
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{ts,tsx,css,md}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
