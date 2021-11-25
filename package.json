@@ -63,6 +63,7 @@
     "typescript": "~4.3.5"
   },
   "lint-staged": {
-    "*.{ts,tsx,css}": "prettier --write"
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,css,md}": "prettier --write"
   }
 }
