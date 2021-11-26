@@ -20,18 +20,19 @@
   "dependencies": {
     "@nestjs/common": "8.2.3",
     "@nestjs/core": "8.2.3",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "8.2.3",
-    "@willsoto/nestjs-objection": "^6.1.0",
+    "@willsoto/nestjs-objection": "6.1.0",
     "csv-parse": "^5.0.3",
     "date-fns": "^2.26.0",
     "dotenv": "^10.0.0",
     "knex": "0.95.14",
     "objection": "3.0.0",
     "pg": "^8.7.1",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "0.1.13",
     "rxjs": "7.4.0",
-    "tslib": "^2.0.0",
-    "uuid": "^8.3.2"
+    "tslib": "2.0.0",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
     "@nestjs/schematics": "8.0.5",

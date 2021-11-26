@@ -17,4 +17,9 @@ async function bootstrap() {
   });
 }
 
-bootstrap();
+try {
+  bootstrap();
+} catch (error) {
+  console.trace(error);
+}
+// bootstrap();
