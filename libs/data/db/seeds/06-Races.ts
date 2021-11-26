@@ -1,7 +1,7 @@
 import { parseISO } from 'date-fns';
 import { Knex } from 'knex';
 import { v4 } from 'uuid';
-import { handleEscapedNulls, loadData } from '../utils/seed.util';
+import { escapeNullString, loadData } from '../utils/seed.util';
 
 export async function seed(knex: Knex): Promise<void> {
   await knex('race').delete();
@@ -15,7 +15,7 @@ export async function seed(knex: Knex): Promise<void> {
       circuit_id: parseInt(r.circuitId, 10),
       name: r.name,
       date: parseISO(r.date),
-      time: handleEscapedNulls(r.time, false),
+      time: escapeNullString(r.time),
       url: r.url
     }))
   );

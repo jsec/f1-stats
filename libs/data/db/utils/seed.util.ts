@@ -35,31 +35,24 @@ export async function loadData(
   return records;
 }
 
+// CSV files that serve as the data source include '\\N', for null values.
+// This function turns them back into nulls.
 function getEscapedValue(value: string): string {
   return !value || value === '\\N' ? null : value;
 }
 
-// CSV files that serve as the data source include '\\N', for null values.
-// This function turns them back into nulls.
-export function handleEscapedNulls(
-  value: string,
-  isNumber: boolean
-): string | number {
-  const parsedValue = !value || value === '\\N' ? null : value;
-
-  if (isNumber) return parsedValue ? parseInt(parsedValue, 10) : null;
-
-  return parsedValue;
-}
-
-export function handleNullEscapedInt(value: string): number {
+export function escapeNullInt(value: string): number {
   const parsedValue = getEscapedValue(value);
 
   return parsedValue ? parseInt(parsedValue, 10) : null;
 }
 
-export function handleNullEscapedFloat(value: string): number {
+export function escapeNullFloat(value: string): number {
   const parsedValue = getEscapedValue(value);
 
   return parsedValue ? parseFloat(parsedValue) : null;
+}
+
+export function escapeNullString(value: string): string {
+  return getEscapedValue(value) ?? null;
 }

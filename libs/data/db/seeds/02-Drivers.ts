@@ -1,7 +1,7 @@
 import { parseISO } from 'date-fns';
 import { Knex } from 'knex';
 import { v4 } from 'uuid';
-import { handleEscapedNulls, loadData } from '../utils/seed.util';
+import { escapeNullInt, escapeNullString, loadData } from '../utils/seed.util';
 
 export async function seed(knex: Knex): Promise<void> {
   await knex('driver').delete();
@@ -11,8 +11,8 @@ export async function seed(knex: Knex): Promise<void> {
       id: v4(),
       driver_id: parseInt(r.driverId, 10),
       driver_ref: r.driverRef,
-      number: handleEscapedNulls(r.number, true),
-      code: handleEscapedNulls(r.code, false),
+      number: escapeNullInt(r.number),
+      code: escapeNullString(r.code),
       first_name: r.forename,
       last_name: r.surname,
       date_of_birth: parseISO(r.dob),
