@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { HttpLoggerMiddleware } from '@nest-toolbox/http-logger-middleware';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from '../common/filters/http-exception.filter';
 import { SeasonModule } from '../season/season.module';
@@ -13,4 +14,11 @@ import { SeasonModule } from '../season/season.module';
     }
   ]
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(HttpLoggerMiddleware).forRoutes({
+      path: '*',
+      method: RequestMethod.ALL
+    });
+  }
+}
