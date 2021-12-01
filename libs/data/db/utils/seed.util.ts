@@ -9,7 +9,7 @@ export async function loadData(
   callback: (records: any[]) => any[]
 ): Promise<any[]> {
   const processFile = async () => {
-    const records = [];
+    const records: any[] = [];
     const path = resolve('../../data', filename);
 
     const parser = createReadStream(path).pipe(
@@ -37,22 +37,22 @@ export async function loadData(
 
 // CSV files that serve as the data source include '\\N', for null values.
 // This function turns them back into nulls.
-function getEscapedValue(value: string): string {
+function getEscapedValue(value: string): string | null {
   return !value || value === '\\N' ? null : value;
 }
 
-export function escapeNullInt(value: string): number {
+export function escapeNullInt(value: string): number | null {
   const parsedValue = getEscapedValue(value);
 
   return parsedValue ? parseInt(parsedValue, 10) : null;
 }
 
-export function escapeNullFloat(value: string): number {
+export function escapeNullFloat(value: string): number | null {
   const parsedValue = getEscapedValue(value);
 
   return parsedValue ? parseFloat(parsedValue) : null;
 }
 
-export function escapeNullString(value: string): string {
+export function escapeNullString(value: string): string | null {
   return getEscapedValue(value) ?? null;
 }
