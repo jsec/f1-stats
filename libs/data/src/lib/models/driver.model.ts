@@ -1,15 +1,15 @@
 import { BaseModel } from './base.model';
 
 export class Driver extends BaseModel {
-  driver_id!: number;
-  driver_ref!: string;
+  static tableName = 'driver';
+
+  driverId!: number;
+  driverRef!: string;
   number!: number;
   code!: string;
-  first_name!: string;
-  last_name!: string;
-  date_of_birth!: Date;
+  firstName!: string;
+  lastName!: string;
+  dateOfBirth!: Date;
   nationality!: string;
   url!: string;
-
-  static tableName = 'driver';
 }

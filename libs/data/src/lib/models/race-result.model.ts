@@ -1,24 +1,64 @@
+import { Model } from 'objection';
 import { BaseModel } from './base.model';
+import { Constructor } from './constructor.model';
+import { Driver } from './driver.model';
+import { Race } from './race.model';
+import { Status } from './status.model';
 
 export class RaceResult extends BaseModel {
-  result_id!: number;
-  race_id!: number;
-  driver_id!: number;
-  constructor_id!: number;
+  static tableName = 'race_result';
+
+  resultId!: number;
+  race!: Race;
+  driver!: Driver;
+  carConstructor!: Constructor;
   number!: number;
   grid!: number;
   position!: number;
-  position_text!: string;
-  position_order!: number;
+  positionText!: string;
+  positionString!: number;
   points!: number;
   laps!: number;
   time!: string;
   milliseconds!: number;
-  fastest_lap!: number;
+  fastestLap!: number;
   rank!: number;
-  fastest_lap_time!: string;
-  fastest_lap_speed!: number;
-  status_id!: number;
+  fastestLapTime!: string;
+  fastestLapSpeed!: number;
+  status!: Status;
 
-  static tableName = 'race_result';
+  static relationMappings = {
+    race: {
+      relation: Model.HasOneRelation,
+      modelClass: Race,
+      join: {
+        from: 'race_result.race_id',
+        to: 'race.race_id'
+      }
+    },
+    driver: {
+      relation: Model.HasOneRelation,
+      modelClass: Driver,
+      join: {
+        from: 'race_result.driver_id',
+        to: 'driver.driver_id'
+      }
+    },
+    carConstructor: {
+      relation: Model.HasOneRelation,
+      modelClass: Constructor,
+      join: {
+        from: 'race_result.constructor_id',
+        to: 'constructor.constructor_id'
+      }
+    },
+    status: {
+      relation: Model.HasOneRelation,
+      modelClass: Status,
+      join: {
+        from: 'race_result.status_id',
+        to: 'status.status_id'
+      }
+    }
+  };
 }

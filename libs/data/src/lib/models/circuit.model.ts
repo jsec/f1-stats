@@ -1,8 +1,10 @@
 import { BaseModel } from './base.model';
 
 export class Circuit extends BaseModel {
-  circuit_id!: number;
-  circuit_ref!: string;
+  static tableName = 'circuit';
+
+  circuitId!: number;
+  circuitRef!: string;
   name!: string;
   location!: string;
   country!: string;
@@ -10,6 +12,4 @@ export class Circuit extends BaseModel {
   longitude!: number;
   altitude!: number;
   url!: string;
-
-  static tableName = 'circuit';
 }
