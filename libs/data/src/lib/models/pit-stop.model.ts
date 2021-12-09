@@ -6,8 +6,8 @@ import { Race } from './race.model';
 export class PitStop extends BaseModel {
   static tableName = 'pit_stop';
 
-  race_id!: string;
-  driver_id!: string;
+  race!: Race;
+  driver!: Driver;
   stop!: number;
   lap!: number;
   time!: string;

@@ -19,7 +19,7 @@ export class DriverStanding extends BaseModel {
       relation: Model.HasOneRelation,
       modelClass: Race,
       join: {
-        from: 'pit_stop.race_id',
+        from: 'driver_standing.race_id',
         to: 'race.race_id'
       }
     },
@@ -27,7 +27,7 @@ export class DriverStanding extends BaseModel {
       relation: Model.HasOneRelation,
       modelClass: Driver,
       join: {
-        from: 'pit_stop.driver_id',
+        from: 'driver_standing.driver_id',
         to: 'driver.driver_id'
       }
     }
