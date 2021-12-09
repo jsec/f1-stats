@@ -2,10 +2,11 @@ import { Logger, MiddlewareConsumer, Module } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from '../common/filters/http-exception.filter';
 import { LoggingMiddleware } from '../common/middlewares/logging.middleware';
+import { DriverModule } from '../driver/driver.module';
 import { SeasonModule } from '../season/season.module';
 
 @Module({
-  imports: [SeasonModule],
+  imports: [DriverModule, SeasonModule],
   controllers: [],
   providers: [
     Logger,
