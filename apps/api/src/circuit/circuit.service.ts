@@ -1,5 +1,5 @@
 import { Circuit } from '@f1-stats/data';
-import { Inject , Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CircuitService {
