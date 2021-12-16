@@ -7,8 +7,7 @@ export class LoggingMiddleware implements NestMiddleware {
   constructor(private readonly logger: Logger) {}
 
   use(req: Request, res: Response, next: NextFunction) {
-    const { ip, method, path: url } = req;
-    const userAgent = req.get('user-agent') || '';
+    const { ip, method, originalUrl } = req;
 
     res.on('close', () => {
       const { statusCode } = res;
@@ -16,7 +15,7 @@ export class LoggingMiddleware implements NestMiddleware {
 
       // TODO: Change log level depending on status code
       this.logger.log(
-        `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip}`
+        `${method} ${originalUrl} ${statusCode} ${contentLength} - ${ip}`
       );
     });
 
