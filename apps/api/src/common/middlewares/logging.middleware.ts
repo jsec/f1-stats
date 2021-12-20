@@ -1,4 +1,4 @@
-import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
+import { HttpStatus, Injectable, Logger, NestMiddleware } from '@nestjs/common';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Request, Response, NextFunction } from 'express';
 
@@ -7,18 +7,27 @@ export class LoggingMiddleware implements NestMiddleware {
   constructor(private readonly logger: Logger) {}
 
   use(req: Request, res: Response, next: NextFunction) {
-    const { ip, method, originalUrl } = req;
-
     res.on('close', () => {
       const { statusCode } = res;
-      const contentLength = res.get('content-length');
+      const message = this.getLogMessage(req, statusCode);
 
-      // TODO: Change log level depending on status code
-      this.logger.log(
-        `${method} ${originalUrl} ${statusCode} ${contentLength} - ${ip}`
-      );
+      if (
+        statusCode === HttpStatus.OK ||
+        statusCode === HttpStatus.NO_CONTENT ||
+        statusCode === HttpStatus.NOT_MODIFIED
+      ) {
+        this.logger.log(message);
+      } else {
+        this.logger.warn(message);
+      }
     });
 
     next();
+  }
+
+  private getLogMessage(req: Request, statusCode: number): string {
+    const { ip, method, originalUrl } = req;
+
+    return `[${statusCode}] ${method} ${originalUrl} - ${ip}`;
   }
 }
