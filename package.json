@@ -15,10 +15,13 @@
     "db:seed:make": "yarn knex seed:make -x ts",
     "db:rebuild": "yarn db:rollback --all && yarn db:migrate && yarn db:seed",
     "api:run": "yarn start api",
+    "components:dev": "yarn nx run components:storybook",
     "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
     "@nestjs/common": "8.2.3",
     "@nestjs/core": "8.2.3",
     "@nestjs/mapped-types": "*",
