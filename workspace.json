@@ -3,6 +3,8 @@
   "projects": {
     "api": "apps/api",
     "components": "libs/components",
-    "data": "libs/data"
+    "data": "libs/data",
+    "ui": "apps/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }
