@@ -4644,10 +4644,10 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@willsoto/nestjs-objection@6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@willsoto/nestjs-objection/-/nestjs-objection-6.1.0.tgz#c4eb26570d18f07137c9995467256376e4d9bea5"
-  integrity sha512-cfWTBVizvmcCRpGLOOoXuPaQr1tJBuLR06YbxUkHioC8MwHWTNCb8itfSkD2h8IHLZJ1y4VNSiRlKItUx2T1Ig==
+"@willsoto/nestjs-objection@6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@willsoto/nestjs-objection/-/nestjs-objection-6.3.0.tgz#67304e5d5f262e5f1693e6c9ff3ac708a3437872"
+  integrity sha512-Nv6SbX50ItHI+5v/fLahn75tZEhEM7IT+PeShq+TtdtDjmnQYs+epmSawiTH7U8UbPDSiJddjakMT6u3EGBLGg==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
